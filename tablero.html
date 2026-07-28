@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flujo de obra · Carpinterías Manzano</title>
+<style>
+:root{
+  --ground:#F4F3F0; --surface:#FFFFFF; --surface-2:#FAF9F6; --surface-3:#EFEDE7;
+  --line:#E2DFD8; --line-strong:#CBC6BB;
+  --ink:#1C1A17; --ink-2:#4E4A42; --ink-3:#7C776D;
+  --accent:#2C4A63; --accent-soft:#E7EEF4; --accent-line:#B9CCDC; --on-accent:#FFFFFF;
+  --verde:#177A42; --verde-bg:#E3F2E9; --verde-line:#A9D6BC;
+  --ambar:#A55B07; --ambar-bg:#FAEEDB; --ambar-line:#E3C289;
+  --rojo:#B92B22; --rojo-bg:#FBE7E4; --rojo-line:#EDB2AC;
+  --morado:#5A34C0; --morado-bg:#ECE7FB; --morado-line:#C3B4F0;
+  --gris:#7C776D; --gris-bg:#ECEAE4; --gris-line:#D3CFC6;
+  --shadow:0 1px 2px rgba(28,26,23,.05), 0 4px 16px -8px rgba(28,26,23,.12);
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+  --sans:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,'SF Mono','Cascadia Mono',Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#121215; --surface:#1A1A1E; --surface-2:#202025; --surface-3:#26262C;
+    --line:#2E2E35; --line-strong:#42424C;
+    --ink:#EAE7E1; --ink-2:#B2AEA6; --ink-3:#847F77;
+    --accent:#83ADD0; --accent-soft:#1B2833; --accent-line:#33495C; --on-accent:#10151A;
+    --verde:#5FC188; --verde-bg:#152619; --verde-line:#2C4B36;
+    --ambar:#E3A54E; --ambar-bg:#2A2013; --ambar-line:#4E3A1C;
+    --rojo:#F17A72; --rojo-bg:#2C1816; --rojo-line:#542A26;
+    --morado:#A78BF5; --morado-bg:#1F1932; --morado-line:#3A2F5C;
+    --gris:#847F77; --gris-bg:#232329; --gris-line:#35353D;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 4px 16px -8px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121215; --surface:#1A1A1E; --surface-2:#202025; --surface-3:#26262C;
+  --line:#2E2E35; --line-strong:#42424C;
+  --ink:#EAE7E1; --ink-2:#B2AEA6; --ink-3:#847F77;
+  --accent:#83ADD0; --accent-soft:#1B2833; --accent-line:#33495C;
+  --verde:#5FC188; --verde-bg:#152619; --verde-line:#2C4B36;
+  --ambar:#E3A54E; --ambar-bg:#2A2013; --ambar-line:#4E3A1C;
+  --rojo:#F17A72; --rojo-bg:#2C1816; --rojo-line:#542A26;
+  --morado:#A78BF5; --morado-bg:#1F1932; --morado-line:#3A2F5C;
+  --gris:#847F77; --gris-bg:#232329; --gris-line:#35353D;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 4px 16px -8px rgba(0,0,0,.6);
+}
+:root[data-theme="light"]{
+  --ground:#F4F3F0; --surface:#FFFFFF; --surface-2:#FAF9F6; --surface-3:#EFEDE7;
+  --line:#E2DFD8; --line-strong:#CBC6BB;
+  --ink:#1C1A17; --ink-2:#4E4A42; --ink-3:#7C776D;
+  --accent:#2C4A63; --accent-soft:#E7EEF4; --accent-line:#B9CCDC; --on-accent:#FFFFFF;
+  --verde:#177A42; --verde-bg:#E3F2E9; --verde-line:#A9D6BC;
+  --ambar:#A55B07; --ambar-bg:#FAEEDB; --ambar-line:#E3C289;
+  --rojo:#B92B22; --rojo-bg:#FBE7E4; --rojo-line:#EDB2AC;
+  --morado:#5A34C0; --morado-bg:#ECE7FB; --morado-line:#C3B4F0;
+  --gris:#7C776D; --gris-bg:#ECEAE4; --gris-line:#D3CFC6;
+  --shadow:0 1px 2px rgba(28,26,23,.05), 0 4px 16px -8px rgba(28,26,23,.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans); background:var(--ground); color:var(--ink);
+  font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- Puente de mando ---------- */
+.top{
+  position:sticky; top:0; z-index:50; background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.top-in{
+  max-width:1680px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:baseline;gap:10px;margin-right:auto}
+.brand .mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--on-accent);background:var(--accent);padding:4px 7px;border-radius:3px;
+}
+.brand h1{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:-.01em}
+.brand .sub{font-size:12px;color:var(--ink-3);font-family:var(--mono)}
+.ctl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.field{
+  display:flex;align-items:center;gap:6px;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:5px;padding:5px 9px;
+}
+.field label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-family:var(--mono)}
+.field select,.field input{background:none;border:none;font-size:13px;max-width:220px}
+.field select:focus,.field input:focus{outline:none}
+.btn{
+  border:1px solid var(--line-strong);background:var(--surface);border-radius:5px;
+  padding:6px 12px;font-size:13px;font-weight:500;transition:background .12s,border-color .12s;
+}
+.btn:hover{background:var(--surface-3)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.08);background:var(--accent)}
+.btn-sm{padding:3px 8px;font-size:12px}
+.btn-ghost{border-color:transparent;background:none;color:var(--ink-2)}
+.btn-ghost:hover{background:var(--surface-3)}
+
+/* ---------- Navegación de vistas ---------- */
+.nav{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:57px;z-index:49}
+.nav-in{max-width:1680px;margin:0 auto;padding:0 20px;display:flex;gap:2px;overflow-x:auto}
+.tab{
+  padding:9px 13px 8px;font-size:13.5px;color:var(--ink-2);white-space:nowrap;
+  border-bottom:2px solid transparent;display:flex;align-items:center;gap:7px;
+}
+.tab:hover{color:var(--ink)}
+.tab[aria-current="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+.tab .cnt{
+  font-family:var(--mono);font-size:10.5px;padding:1px 5px;border-radius:9px;
+  background:var(--surface-3);color:var(--ink-3);
+}
+.tab .cnt.hot{background:var(--rojo-bg);color:var(--rojo)}
+
+main{max-width:1680px;margin:0 auto;padding:22px 20px 80px}
+
+/* ---------- Tipografía de sección ---------- */
+.vhead{margin-bottom:18px;max-width:70ch}
+.vhead h2{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.015em;text-wrap:balance}
+.vhead p{color:var(--ink-2);font-size:14px;margin-top:5px}
+.eyebrow{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:5px;
+}
+h3.sec{font-size:13px;font-weight:650;letter-spacing:.02em;margin-bottom:9px;display:flex;align-items:center;gap:8px}
+h3.sec .rule{flex:1;height:1px;background:var(--line)}
+
+/* ---------- Tarjetas ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.pad{padding:14px 16px}
+.grid{display:grid;gap:12px}
+
+/* ---------- Chips / semáforo ---------- */
+.chip{
+  display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;
+  padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;
+  font-family:var(--mono);letter-spacing:.03em;text-transform:uppercase;
+}
+.s-verde{color:var(--verde);background:var(--verde-bg);border-color:var(--verde-line)}
+.s-ambar{color:var(--ambar);background:var(--ambar-bg);border-color:var(--ambar-line)}
+.s-rojo{color:var(--rojo);background:var(--rojo-bg);border-color:var(--rojo-line)}
+.s-morado{color:var(--morado);background:var(--morado-bg);border-color:var(--morado-line)}
+.s-gris{color:var(--gris);background:var(--gris-bg);border-color:var(--gris-line)}
+.s-accent{color:var(--accent);background:var(--accent-soft);border-color:var(--accent-line)}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+
+/* ---------- Panel de alertas ---------- */
+.alert-grid{display:grid;gap:10px}
+.alert{
+  display:grid;grid-template-columns:4px 1fr auto;gap:0;background:var(--surface);
+  border:1px solid var(--line);border-radius:6px;overflow:hidden;align-items:stretch;
+}
+.alert .stripe{background:var(--gris)}
+.alert.sev1 .stripe{background:var(--rojo)}
+.alert.sev2 .stripe{background:var(--ambar)}
+.alert.sev3 .stripe{background:var(--accent)}
+.alert.urg .stripe{background:var(--morado)}
+.alert-body{padding:11px 14px;min-width:0}
+.alert-t{font-weight:650;font-size:14px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.alert-d{color:var(--ink-2);font-size:13px;margin-top:3px}
+.alert-d strong{color:var(--ink);font-weight:600}
+.alert-act{display:flex;align-items:center;gap:6px;padding:11px 14px 11px 0}
+.alert-src{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:5px}
+
+/* ---------- Tiles de cabecera ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:10px;margin-bottom:20px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.tile .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.tile .v{font-family:var(--mono);font-size:27px;font-weight:600;letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
+.tile .n{font-size:12px;color:var(--ink-2);margin-top:2px}
+.tile.hot{border-color:var(--rojo-line);background:var(--rojo-bg)}
+.tile.hot .v{color:var(--rojo)}
+.tile.warn{border-color:var(--ambar-line);background:var(--ambar-bg)}
+.tile.warn .v{color:var(--ambar)}
+
+/* ---------- Kanban ---------- */
+.board-wrap{overflow-x:auto;padding-bottom:12px}
+.board{display:flex;gap:10px;min-width:min-content;align-items:flex-start}
+.col{
+  width:236px;flex:none;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:6px;display:flex;flex-direction:column;max-height:calc(100vh - 260px);
+}
+.col.drop{border-color:var(--accent);background:var(--accent-soft)}
+.col-h{padding:9px 11px 8px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface-2);border-radius:6px 6px 0 0;z-index:1}
+.col-h .num{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em}
+.col-h .nm{font-size:12.5px;font-weight:650;display:flex;justify-content:space-between;gap:8px;align-items:baseline;margin-top:1px}
+.col-h .qty{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.col-b{padding:8px;display:flex;flex-direction:column;gap:7px;overflow-y:auto}
+.col-empty{font-size:12px;color:var(--ink-3);text-align:center;padding:14px 6px;font-style:italic}
+
+.lote{
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gris);
+  border-radius:4px;padding:8px 9px;cursor:grab;transition:box-shadow .12s,transform .12s;
+}
+.lote:hover{box-shadow:var(--shadow)}
+.lote:active{cursor:grabbing}
+.lote.dragging{opacity:.4}
+.lote.r-verde{border-left-color:var(--verde)}
+.lote.r-ambar{border-left-color:var(--ambar)}
+.lote.r-rojo{border-left-color:var(--rojo)}
+.lote.r-morado{border-left-color:var(--morado)}
+.lote .obra{font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lote .nm{font-size:13px;font-weight:640;margin:2px 0 5px;line-height:1.3}
+.lote .meta{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.lote .dates{
+  font-family:var(--mono);font-size:11px;color:var(--ink-2);margin-top:6px;
+  display:flex;justify-content:space-between;gap:6px;font-variant-numeric:tabular-nums;
+  border-top:1px dashed var(--line);padding-top:5px;
+}
+.lote .warn{font-size:11.5px;color:var(--rojo);margin-top:5px;line-height:1.35;display:flex;gap:5px}
+.lote .warn.amb{color:var(--ambar)}
+.fam{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ---------- Tablas ---------- */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:640px}
+th{
+  text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;padding:9px 12px;border-bottom:1px solid var(--line);
+  background:var(--surface-2);position:sticky;top:0;
+}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--surface-2)}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- Plan maestro (obras) ---------- */
+.obra-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.obra-h{display:flex;gap:14px;align-items:flex-start;padding:13px 15px;background:var(--surface-2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.obra-h .t{flex:1;min-width:220px}
+.obra-h h4{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:-.01em}
+.obra-h .m{font-size:12.5px;color:var(--ink-2);margin-top:2px}
+.obra-prog{display:flex;height:5px;border-radius:3px;overflow:hidden;background:var(--surface-3);margin-top:9px;width:100%}
+.obra-prog span{display:block}
+.lote-row{display:grid;grid-template-columns:minmax(150px,1.3fr) 110px 100px minmax(160px,1.4fr) 120px auto;
+  gap:12px;padding:9px 15px;border-bottom:1px solid var(--line);align-items:center;font-size:13px}
+.lote-row:last-child{border-bottom:none}
+.lote-row:hover{background:var(--surface-2)}
+.lote-row .ln{font-weight:600;display:flex;align-items:center;gap:7px}
+.bar{height:4px;background:var(--surface-3);border-radius:2px;overflow:hidden;position:relative}
+.bar i{position:absolute;top:0;bottom:0;left:0;display:block;border-radius:2px}
+@media(max-width:900px){.lote-row{grid-template-columns:1fr auto;gap:6px}.lote-row .hide-s{display:none}}
+
+/* ---------- Timeline 3 semanas ---------- */
+.tl{border:1px solid var(--line);border-radius:6px;background:var(--surface);overflow:hidden}
+.tl-head{display:grid;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.tl-row{display:grid;border-bottom:1px solid var(--line);align-items:center;min-height:44px}
+.tl-row:last-child{border-bottom:none}
+.tl-row:hover{background:var(--surface-2)}
+.tl-lbl{padding:7px 12px;border-right:1px solid var(--line);min-width:0}
+.tl-lbl .a{font-size:13px;font-weight:640;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-lbl .b{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-track{position:relative;height:44px}
+.tl-grid{position:absolute;inset:0;display:grid}
+.tl-grid i{border-right:1px solid var(--line)}
+.tl-grid i.we{background:var(--surface-3)}
+.tl-grid i.today{background:var(--accent-soft)}
+.tl-bar{position:absolute;top:13px;height:18px;border-radius:3px;border:1px solid;display:flex;align-items:center;
+  padding:0 6px;font-family:var(--mono);font-size:10px;font-weight:600;overflow:hidden;white-space:nowrap}
+.tl-mk{position:absolute;top:9px;width:0;height:26px;border-left:2px dotted var(--ink-3)}
+.tl-mk::after{content:attr(data-l);position:absolute;top:-2px;left:4px;font-family:var(--mono);font-size:9px;color:var(--ink-3)}
+.tl-dcol{padding:5px 2px;text-align:center;border-right:1px solid var(--line);font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.tl-dcol.we{background:var(--surface-3)}
+.tl-dcol.today{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.tl-dcol b{display:block;font-size:12px;color:var(--ink-2);font-weight:600}
+.tl-dcol.today b{color:var(--accent)}
+
+/* ---------- Panel lateral (detalle) ---------- */
+.scrim{position:fixed;inset:0;background:rgba(20,18,15,.42);z-index:80;backdrop-filter:blur(2px)}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(520px,100vw);background:var(--surface);
+  border-left:1px solid var(--line);z-index:81;display:flex;flex-direction:column;box-shadow:-12px 0 40px -20px rgba(0,0,0,.5);
+}
+.drawer-h{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.drawer-h h3{font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.2}
+.drawer-h .m{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+.drawer-b{padding:16px 18px 40px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:18px}
+.drawer-f{padding:12px 18px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:space-between;background:var(--surface-2)}
+
+.fset{display:flex;flex-direction:column;gap:9px}
+.fset > .lg{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+  border-bottom:1px solid var(--line);padding-bottom:5px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.f{display:flex;flex-direction:column;gap:3px}
+.f > span{font-size:11.5px;color:var(--ink-2);font-weight:550}
+.f input,.f select,.f textarea{
+  border:1px solid var(--line-strong);background:var(--surface-2);border-radius:4px;padding:6px 8px;font-size:13px;width:100%;
+}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--accent);background:var(--surface)}
+.f textarea{resize:vertical;min-height:56px;font-family:inherit}
+.chk{display:flex;align-items:flex-start;gap:8px;font-size:13px;padding:5px 7px;border:1px solid var(--line);border-radius:4px;background:var(--surface-2)}
+.chk input{margin-top:2px;accent-color:var(--accent);flex:none;width:15px;height:15px}
+.chk.ok{border-color:var(--verde-line);background:var(--verde-bg)}
+.chk small{display:block;color:var(--ink-3);font-size:11px}
+
+.plan-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.plan-item{display:flex;justify-content:space-between;gap:10px;padding:7px 11px;border-bottom:1px solid var(--line);font-size:12.5px;align-items:center}
+.plan-item:last-child{border-bottom:none}
+.plan-item .l{color:var(--ink-2)}
+.plan-item .r{font-family:var(--mono);font-weight:600;font-variant-numeric:tabular-nums}
+.plan-item.past{background:var(--rojo-bg)}
+.plan-item.past .r{color:var(--rojo)}
+.plan-item.now{background:var(--ambar-bg)}
+.plan-item.now .r{color:var(--ambar)}
+
+/* ---------- Aviso ejemplo ---------- */
+.demo-bar{
+  background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;
+  padding:10px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px;font-size:13px;
+}
+.demo-bar .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--accent);color:var(--on-accent);padding:3px 7px;border-radius:3px;flex:none}
+.demo-bar p{flex:1;min-width:240px;color:var(--ink)}
+
+.hint{font-size:12.5px;color:var(--ink-3);margin-top:8px;max-width:70ch}
+.empty-state{text-align:center;padding:52px 20px;color:var(--ink-3)}
+.empty-state h4{font-family:var(--serif);font-size:19px;color:var(--ink-2);margin-bottom:6px}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:980px){.split{grid-template-columns:1fr}}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);margin-top:10px;align-items:center}
+.legend span{display:flex;align-items:center;gap:5px}
+.sw{width:11px;height:11px;border-radius:2px;flex:none}
+
+.queue-item{display:flex;gap:11px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line)}
+.queue-item:last-child{border-bottom:none}
+.queue-item .pos{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--ink-3);width:22px;text-align:right;flex:none}
+.queue-item .q{flex:1;min-width:0}
+.queue-item .q b{font-size:13px;display:block}
+.queue-item .q small{font-size:11.5px;color:var(--ink-3);font-family:var(--mono)}
+.queue-item.prep{background:var(--ambar-bg)}
+
+.mini{display:flex;align-items:flex-end;gap:3px;height:34px;margin-top:8px}
+.mini i{flex:1;background:var(--accent-line);border-radius:1px 1px 0 0;min-height:2px;display:block}
+.mini i.hot{background:var(--rojo)}
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:200;
+  background:var(--ink);color:var(--ground);padding:9px 16px;border-radius:5px;font-size:13px;
+  box-shadow:var(--shadow);max-width:90vw;
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <span class="mark">Flujo</span>
+      <div>
+        <h1>Carpinterías Manzano</h1>
+        <div class="sub">Del contrato firmado al cobro · Plasencia</div>
+      </div>
+    </div>
+    <div class="ctl">
+      <div class="field">
+        <label for="fObra">Obra</label>
+        <select id="fObra"></select>
+      </div>
+      <div class="field">
+        <label for="fUser">Soy</label>
+        <select id="fUser"></select>
+      </div>
+      <button class="chip s-gris" id="syncChip" data-act="menu-datos" style="cursor:pointer">Solo en este equipo</button>
+      <button class="btn" id="bObra">+ Obra</button>
+      <button class="btn btn-primary" id="bLote">+ Lote</button>
+      <button class="btn btn-ghost" id="bMenu" title="Datos y ajustes" aria-label="Datos y ajustes">···</button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav"><div class="nav-in" id="tabs"></div></nav>
+
+<main id="app"></main>
+
+<div id="layer"></div>
+
+<script>
+"use strict";
+/* ============================================================
+   Flujo de obra — Carpinterías Manzano
+   Estructura tomada de la sesión de trabajo con Ricardo:
+   obra → lotes, planificación hacia atrás, semáforo de fechas,
+   cola de oficina, certificación mensual y cinco indicadores.
+   ============================================================ */
+
+const STORE = 'manzano-flujo-v1';
+
+/* --- 1. Columnas del lote: la secuencia real, numerada porque el orden importa --- */
+const ESTADOS = [
+  {id:'por_medir',  n:'Por medir',          g:'Preparación'},
+  {id:'medido',     n:'Medido',             g:'Preparación'},
+  {id:'oficina',    n:'Oficina / despiece', g:'Preparación'},
+  {id:'material',   n:'Material pendiente', g:'Preparación'},
+  {id:'listo_fab',  n:'Listo para fabricar',g:'Fábrica'},
+  {id:'en_fab',     n:'En fabricación',     g:'Fábrica'},
+  {id:'listo_env',  n:'Listo para enviar',  g:'Fábrica'},
+  {id:'en_obra',    n:'En obra',            g:'Obra'},
+  {id:'montaje',    n:'En montaje',         g:'Obra'},
+  {id:'repasos',    n:'Repasos',            g:'Obra'},
+  {id:'terminado',  n:'Terminado',          g:'Obra'}
+];
+const IDX = Object.fromEntries(ESTADOS.map((e,i)=>[e.id,i]));
+
+const CERT = [
+  {id:'pend_info',   n:'Pendiente de información de obra', mio:true},
+  {id:'info_ok',     n:'Información recibida',             mio:true},
+  {id:'propuesta',   n:'Propuesta preparada',              mio:true},
+  {id:'revision',    n:'En revisión de la constructora',   mio:false},
+  {id:'proforma',    n:'Proforma aprobada',                mio:false},
+  {id:'facturada',   n:'Facturada',                        mio:false},
+  {id:'cobrada',     n:'Cobrada',                          mio:false}
+];
+
+/* La definición de "Listo para fabricar" del documento. Sin los seis, el lote va bloqueado. */
+const GATES = [
+  {id:'medicion',  n:'Medición validada'},
+  {id:'despiece',  n:'Despiece hecho'},
+  {id:'material',  n:'Material recibido y completo'},
+  {id:'fecha',     n:'Fecha de obra confirmada'},
+  {id:'capacidad', n:'Capacidad disponible'},
+  {id:'transporte',n:'Transporte previsto'}
+];
+
+const SUBFAB = [
+  {id:'',            n:'— sin indicar —'},
+  {id:'esp_material',n:'Esperando material'},
+  {id:'corte',       n:'En corte'},
+  {id:'pintura',     n:'En pintura'},
+  {id:'mont_taller', n:'Montaje en taller'},
+  {id:'parado',      n:'Parado'}
+];
+
+const PERSONAS = ['Alejandro','María Jesús','Encargado de taller','Administración','Ricardo'];
+
+const VISTAS = [
+  {id:'alertas',  n:'Alertas'},
+  {id:'obras',    n:'Obras y lotes'},
+  {id:'flujo',    n:'Flujo'},
+  {id:'semanas',  n:'3 semanas'},
+  {id:'material', n:'Materiales'},
+  {id:'cert',     n:'Certificación'},
+  {id:'kpi',      n:'Indicadores'}
+];
+
+/* ---------- 2. Utilidades de fecha (laborables, que es como se fabrica) ---------- */
+const hoy = () => { const d = new Date(); d.setHours(0,0,0,0); return d; };
+const iso = d => { const x = new Date(d); return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0'); };
+const parse = s => { if(!s) return null; const [y,m,d]=s.split('-').map(Number); const x=new Date(y,m-1,d); x.setHours(0,0,0,0); return x; };
+const findes = d => d.getDay()===0 || d.getDay()===6;
+const masDias = (s,n) => { const d = parse(s); if(!d) return null; d.setDate(d.getDate()+n); return iso(d); };
+function labAtras(s, n){
+  const d = parse(s); if(!d) return null; let c = 0;
+  while(c < n){ d.setDate(d.getDate()-1); if(!findes(d)) c++; }
+  return iso(d);
+}
+function labEntre(a, b){ // laborables de a hasta b (negativo si b es anterior)
+  const A = parse(a), B = parse(b); if(!A||!B) return 0;
+  const sign = B >= A ? 1 : -1; const d = new Date(sign>0?A:B), end = sign>0?B:A; let c = 0;
+  while(d < end){ d.setDate(d.getDate()+1); if(!findes(d)) c++; }
+  return c * sign;
+}
+const dias = (a,b) => Math.round((parse(b)-parse(a))/86400000);
+const MES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const DIA = ['D','L','M','X','J','V','S'];
+function fFecha(s){ const d = parse(s); return d ? String(d.getDate()).padStart(2,'0')+' '+MES[d.getMonth()] : '—'; }
+function fFechaL(s){ const d = parse(s); return d ? DIA[d.getDay()]+' '+d.getDate()+' '+MES[d.getMonth()] : '—'; }
+function fRel(s){
+  if(!s) return '—';
+  const n = dias(iso(hoy()), s);
+  if(n === 0) return 'hoy';
+  if(n === 1) return 'mañana';
+  if(n === -1) return 'ayer';
+  return n > 0 ? 'en '+n+' d' : 'hace '+(-n)+' d';
+}
+const eur = n => (n||0).toLocaleString('es-ES',{maximumFractionDigits:0})+' €';
+const uid = p => p + '-' + Math.random().toString(36).slice(2,9);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const mesActual = () => { const d = hoy(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); };
+function fMes(m){ const [y,mm] = m.split('-'); return MES[+mm-1]+' '+y; }
+
+/* ---------- 3. Estado ---------- */
+let S = null;
+const cfg = () => S.config;
+
+function nuevoEstado(){
+  return {
+    config:{ diasPuertas:3, diasArmarios:4, margenCarga:1, semanasMaterial:5, horasDespiece:2.5, diasFabAviso:7 },
+    ui:{ vista:'alertas', obra:'', usuario:'Alejandro', colaAbierta:true },
+    obras:[], lotes:[], certs:[], historial:[]
+  };
+}
+function cargar(){
+  try{ const raw = localStorage.getItem(STORE); if(raw) S = JSON.parse(raw); }catch(e){ S = null; }
+  if(!S || !S.obras) S = nuevoEstado();
+  S.config = Object.assign(nuevoEstado().config, S.config||{});
+  S.ui = Object.assign(nuevoEstado().ui, S.ui||{});
+  // El ejemplo siempre está disponible: si no hay ninguna obra de ejemplo, se repone.
+  if(!S.obras.some(o => o.ejemplo)) sembrarEjemplo();
+}
+function guardarLocal(){ try{ localStorage.setItem(STORE, JSON.stringify(S)); }catch(e){ toast('No se ha podido guardar en este navegador'); } }
+function guardar(){ guardarLocal(); programarPush(); }
+
+/* ---------- Datos compartidos: el repositorio hace de almacén ----------
+   Cada guardado es un commit, así que queda el historial de quién cambió
+   qué. Varias personas comparten tablero apuntando al mismo repositorio.
+   Necesita salida a api.github.com: funciona con el archivo abierto en
+   local, en GitHub Pages o en SharePoint, no dentro del visor de artefactos. */
+const GH_STORE = 'manzano-github-v1';
+let GH = { owner:'', repo:'', branch:'main', path:'datos/tablero.json', token:'' };
+let SY = { sha:null, estado:'local', ultimo:null, error:'', timer:null };
+const ghActivo = () => !!(GH.token && GH.owner && GH.repo);
+
+function ghCargarCfg(){ try{ const r = localStorage.getItem(GH_STORE); if(r) GH = Object.assign(GH, JSON.parse(r)); }catch(e){} }
+function ghGuardarCfg(){ try{ localStorage.setItem(GH_STORE, JSON.stringify(GH)); }catch(e){} }
+
+/* Base64 respetando UTF-8: los nombres llevan tildes y eñes. */
+function b64enc(s){
+  const by = new TextEncoder().encode(s); let bin = '';
+  for(let i = 0; i < by.length; i += 0x8000) bin += String.fromCharCode.apply(null, by.subarray(i, i+0x8000));
+  return btoa(bin);
+}
+function b64dec(b){
+  const bin = atob(String(b).replace(/\s/g,'')); const by = new Uint8Array(bin.length);
+  for(let i = 0; i < bin.length; i++) by[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(by);
+}
+const ghRuta = () => `/repos/${encodeURIComponent(GH.owner)}/${encodeURIComponent(GH.repo)}/contents/`
+  + GH.path.split('/').filter(Boolean).map(encodeURIComponent).join('/');
+const ghApi = (ruta, opt) => fetch('https://api.github.com' + ruta, Object.assign({
+  headers:{ Authorization:'Bearer '+GH.token, Accept:'application/vnd.github+json', 'X-GitHub-Api-Version':'2022-11-28' }
+}, opt));
+function ghError(r){
+  if(r.status === 401) return 'El token no vale o ha caducado';
+  if(r.status === 403) return 'El token no tiene permiso de escritura aquí';
+  if(r.status === 404) return 'No encuentro ese repositorio o esa rama';
+  return 'GitHub ha respondido ' + r.status;
+}
+
+async function ghTraer(silencioso){
+  if(!ghActivo()) return;
+  SY.estado = 'trayendo'; SY.error = ''; pintarSync();
+  try{
+    const r = await ghApi(ghRuta() + '?ref=' + encodeURIComponent(GH.branch));
+    if(r.status === 404){
+      const rr = await ghApi(`/repos/${encodeURIComponent(GH.owner)}/${encodeURIComponent(GH.repo)}`);
+      if(!rr.ok){ SY.estado = 'error'; SY.error = ghError(rr); pintarSync(); if(!silencioso) toast(SY.error); return; }
+      SY.sha = null; SY.estado = 'ok'; SY.ultimo = new Date(); pintarSync();
+      if(!silencioso) toast('Conectado. Todavía no hay datos: pulsa «Guardar ahora» para subir los de aquí.');
+      return;
+    }
+    if(!r.ok){ SY.estado = 'error'; SY.error = ghError(r); pintarSync(); if(!silencioso) toast(SY.error); return; }
+    const j = await r.json();
+    const d = JSON.parse(b64dec(j.content));
+    if(d && d.obras){
+      const ui = S.ui;                                   // vista y usuario son de cada uno
+      S = d; S.ui = ui;
+      S.config = Object.assign(nuevoEstado().config, S.config || {});
+      S.historial = S.historial || [];
+      if(!S.obras.some(o => o.ejemplo)) sembrarEjemplo();
+      guardarLocal();
+    }
+    SY.sha = j.sha; SY.estado = 'ok'; SY.ultimo = new Date();
+    render(); if(!silencioso) toast('Tablero actualizado con lo que hay en el repositorio');
+  }catch(e){ SY.estado = 'error'; SY.error = 'Sin conexión con GitHub'; pintarSync(); }
+}
+
+async function ghEmpujar(forzar){
+  if(!ghActivo()) return;
+  clearTimeout(SY.timer); SY.timer = null;
+  SY.estado = 'guardando'; SY.error = ''; pintarSync();
+  try{
+    const cuerpo = { message:`Tablero actualizado por ${S.ui.usuario}`, branch:GH.branch,
+                     content: b64enc(JSON.stringify(S, null, 1)) };
+    if(forzar){
+      const r0 = await ghApi(ghRuta() + '?ref=' + encodeURIComponent(GH.branch));
+      if(r0.ok) cuerpo.sha = (await r0.json()).sha;
+    } else if(SY.sha) cuerpo.sha = SY.sha;
+
+    const r = await ghApi(ghRuta(), { method:'PUT', body: JSON.stringify(cuerpo) });
+    if(r.status === 409 || r.status === 422){ SY.estado = 'conflicto'; pintarSync(); render(); return; }
+    if(!r.ok){ SY.estado = 'error'; SY.error = ghError(r); pintarSync(); return; }
+    SY.sha = (await r.json()).content.sha; SY.estado = 'ok'; SY.ultimo = new Date(); pintarSync();
+  }catch(e){ SY.estado = 'error'; SY.error = 'Sin conexión con GitHub'; pintarSync(); }
+}
+
+function programarPush(){
+  if(!ghActivo() || SY.estado === 'conflicto') return;
+  SY.estado = 'sin_guardar'; pintarSync();
+  clearTimeout(SY.timer);
+  SY.timer = setTimeout(() => ghEmpujar(false), 2500);
+}
+
+function pintarSync(){
+  const el = document.getElementById('syncChip'); if(!el) return;
+  const hh = d => String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+  const m = {
+    local:       ['s-gris',   'Solo en este equipo'],
+    ok:          ['s-verde',  SY.ultimo ? 'Guardado ' + hh(SY.ultimo) : 'Conectado'],
+    guardando:   ['s-accent', 'Guardando…'],
+    trayendo:    ['s-accent', 'Trayendo…'],
+    sin_guardar: ['s-ambar',  'Sin guardar'],
+    conflicto:   ['s-rojo',   'Cambios de otra persona'],
+    error:       ['s-rojo',   SY.error || 'Error']
+  }[ghActivo() ? SY.estado : 'local'];
+  el.className = 'chip ' + m[0]; el.textContent = m[1];
+  el.title = ghActivo() ? `${GH.owner}/${GH.repo} · rama ${GH.branch} · ${GH.path}`
+                        : 'Los datos solo están en este navegador. Ábrelo en el menú ··· para compartirlos.';
+}
+function log(tipo, texto, loteId){
+  S.historial.unshift({ ts:new Date().toISOString(), tipo, texto, loteId:loteId||null, quien:S.ui.usuario });
+  if(S.historial.length > 400) S.historial.length = 400;
+}
+
+/* ---------- 4. Planificación hacia atrás: el cálculo que lo cambia todo ---------- */
+function plan(l){
+  const D = l.fechaObra;
+  if(!D) return { entrega:null, finFab:null, inicioFab:null, material:null, pedido:null };
+  const finFab    = labAtras(D, cfg().margenCarga);
+  const diasFab   = l.familia === 'armarios' ? cfg().diasArmarios : cfg().diasPuertas;
+  const inicioFab = labAtras(finFab, diasFab);
+  const material  = labAtras(inicioFab, 1);
+  const pedido    = masDias(material, -cfg().semanasMaterial * 7);
+  return { entrega:D, finFab, inicioFab, material, pedido, diasFab };
+}
+
+function gatesFaltan(l){ return GATES.filter(g => !l.gates[g.id]); }
+
+/* Semáforo del lote: morado urgencia · rojo imposible o bloqueo · ámbar previsión o al límite · verde en plazo */
+function riesgo(l){
+  if(l.estado === 'terminado') return 'verde';
+  if(l.urgente) return 'morado';
+  if(!l.fechaObra) return 'gris';
+  const p = plan(l), h = iso(hoy());
+  if(IDX[l.estado] < IDX.en_fab && labEntre(h, p.inicioFab) < 0) return 'rojo';
+  if(IDX[l.estado] < IDX.listo_fab && !l.pedido.fechaPedido && dias(h, p.pedido) < 0) return 'rojo';
+  if(l.estado === 'listo_fab' && gatesFaltan(l).length) return 'rojo';
+  if(l.subestado === 'parado') return 'rojo';
+  if(l.confirmacion !== 'confirmada') return 'ambar';
+  if(IDX[l.estado] < IDX.en_fab && labEntre(h, p.inicioFab) <= 3) return 'ambar';
+  return 'verde';
+}
+const RTXT = { verde:'En plazo', ambar:'Previsión', rojo:'Bloqueo', morado:'Urgencia', gris:'Sin fecha' };
+
+const obraDe   = id => S.obras.find(o => o.id === id);
+const lotesDe  = id => S.lotes.filter(l => l.obraId === id);
+const lotesVis = () => S.ui.obra ? S.lotes.filter(l => l.obraId === S.ui.obra) : S.lotes.slice();
+const activo   = l => l.estado !== 'terminado';
+
+/* ---------- 5. Motor de cuellos de botella ---------- */
+function alertas(){
+  const A = [], h = iso(hoy()), L = lotesVis();
+
+  L.forEach(l => {
+    const o = obraDe(l.obraId), p = plan(l);
+    if(!activo(l)) return;
+
+    // Plazo técnicamente imposible: el lote debía estar ya en fábrica
+    if(l.fechaObra && IDX[l.estado] < IDX.en_fab){
+      const m = labEntre(h, p.inicioFab);
+      if(m < 0) A.push({sev:1, cat:'Plazo imposible', loteId:l.id,
+        t:`${o.nombre} · ${l.nombre} no llega a la fecha de obra`,
+        d:`Entrega el <strong>${fFechaL(l.fechaObra)}</strong>. La fabricación tenía que haber empezado el <strong>${fFechaL(p.inicioFab)}</strong> — hace <strong>${-m} días laborables</strong>. Sigue en «${ESTADOS[IDX[l.estado]].n}».`,
+        src:'Regla: se calcula desde la fecha de obra hacia atrás'});
+      else if(m <= 2) A.push({sev:2, cat:'Al límite', loteId:l.id,
+        t:`${o.nombre} · ${l.nombre} entra en fábrica ${m===0?'hoy':'en '+m+' d'}`,
+        d:`Fecha máxima de inicio: <strong>${fFechaL(p.inicioFab)}</strong>. Después de ese día la fecha de obra se pierde.`,
+        src:'Horizonte de 2 semanas · programación de fabricación'});
+    }
+
+    // Pedido de material fuera de plazo
+    if(l.fechaObra && !l.pedido.fechaPedido && !l.gates.material && IDX[l.estado] < IDX.listo_fab){
+      const dp = dias(h, p.pedido);
+      if(dp < 0) A.push({sev:1, cat:'Material sin pedir', loteId:l.id,
+        t:`${o.nombre} · ${l.nombre}: el material tenía que estar pedido hace ${-dp} días`,
+        d:`Con ${cfg().semanasMaterial} semanas de plazo, el pedido vencía el <strong>${fFecha(p.pedido)}</strong> para tener material en casa el <strong>${fFecha(p.material)}</strong>. Sin él, la fecha de obra del ${fFecha(l.fechaObra)} no se sostiene.`,
+        src:'Horizonte de 1–1,5 meses · compra de materiales'});
+      else if(dp <= 7) A.push({sev:2, cat:'Pedido inminente', loteId:l.id,
+        t:`${o.nombre} · ${l.nombre}: pedir material antes del ${fFecha(p.pedido)}`,
+        d:`Quedan <strong>${dp} días</strong>. Se pide por obra, no hay almacén del que tirar.`,
+        src:'Horizonte de 1–1,5 meses · compra de materiales'});
+    }
+
+    // "Listo para fabricar" sin cumplir la definición
+    if(l.estado === 'listo_fab'){
+      const f = gatesFaltan(l);
+      if(f.length) A.push({sev:1, cat:'Bloqueado', loteId:l.id,
+        t:`${o.nombre} · ${l.nombre} no está realmente listo para fabricar`,
+        d:`Falta: <strong>${f.map(x=>x.n.toLowerCase()).join(' · ')}</strong>. Está en la columna pero fábrica no puede arrancarlo.`,
+        src:'Definición de «Listo para fabricar»'});
+    }
+
+    // Fabricación como caja negra
+    if(l.estado === 'en_fab'){
+      if(!l.subestado) A.push({sev:2, cat:'Fabricación opaca', loteId:l.id,
+        t:`${o.nombre} · ${l.nombre} lleva ${l.entradaFabrica ? labEntre(l.entradaFabrica,h)+' días laborables' : 'tiempo'} en fábrica sin detalle`,
+        d:`No consta si espera material, está en corte, en pintura o parado. «Fabricación» no puede ser un cajón.`,
+        src:'Aviso sobre las columnas del tablero'});
+      else if(l.subestado === 'parado') A.push({sev:1, cat:'Trabajo interrumpido', loteId:l.id,
+        t:`${o.nombre} · ${l.nombre} está parado dentro de fábrica`,
+        d:`Trabajo empezado y sin cerrar. Antes de empezar otro lote, se termina el que está en producción.`,
+        src:'Regla de juego · indicador 2'});
+      if(l.entradaFabrica && labEntre(l.entradaFabrica, h) > cfg().diasFabAviso)
+        A.push({sev:2, cat:'Lead time', loteId:l.id,
+          t:`${o.nombre} · ${l.nombre}: ${labEntre(l.entradaFabrica,h)} días laborables dentro de fábrica`,
+          d:`Entró el ${fFecha(l.entradaFabrica)}. El plazo técnico de ${l.familia} es de ${plan(l).diasFab} días.`,
+          src:'Indicador 4 · días de entrada a salida de fábrica'});
+    }
+
+    // Documentación de acceso a obra: 48 h
+    if(l.transporte.fecha && l.docAcceso !== 'aprobada' && IDX[l.estado] < IDX.montaje){
+      const hs = dias(h, l.transporte.fecha) * 24;
+      if(hs < 48) A.push({sev:1, cat:'Acceso a obra', loteId:l.id,
+        t:`${o.nombre} · ${l.nombre}: entrada el ${fFechaL(l.transporte.fecha)} sin documentación aprobada`,
+        d:`La documentación necesita <strong>24–48 h</strong> y quedan ${Math.max(0,hs)} h. Esto aparece como urgencia, no como algo normal.`,
+        src:'Regla: montaje confirmado exige 48 h de margen'});
+    }
+  });
+
+  // Una sola urgencia activa
+  const urg = L.filter(l => l.urgente && activo(l));
+  if(urg.length > 1) A.push({sev:1, urg:true, cat:'Urgencias',
+    t:`Hay ${urg.length} urgencias activas a la vez`,
+    d:`${urg.map(l => obraDe(l.obraId).nombre+' · '+l.nombre).join(' · ')}. La regla es una sola urgencia activa, y al entrar tiene que verse qué lote se detiene y qué fecha se resiente.`,
+    src:'Regla de juego · una sola urgencia activa'});
+  urg.forEach(l => {
+    if(!l.desplazaA) A.push({sev:2, urg:true, cat:'Urgencia sin coste', loteId:l.id,
+      t:`${obraDe(l.obraId).nombre} · ${l.nombre} es urgente pero no dice a quién desplaza`,
+      d:`Una urgencia puede ser necesaria. Lo que no puede ser es invisible y gratuita.`,
+      src:'Lo que cuesta de verdad una urgencia'});
+  });
+
+  // Cola de oficina: una sola orden en preparación por persona
+  const prep = {};
+  L.filter(l => l.estado === 'oficina' && l.enPreparacion).forEach(l => { (prep[l.responsableOficina] ||= []).push(l); });
+  Object.entries(prep).forEach(([q, ls]) => {
+    if(ls.length > 1) A.push({sev:2, cat:'Cola de oficina',
+      t:`${q} tiene ${ls.length} despieces abiertos a la vez`,
+      d:`${ls.map(l=>l.nombre).join(' · ')}. Solo una orden en preparación por persona; el resto, en cola y a la vista.`,
+      src:'La cola de oficina'});
+  });
+  // Cola ordenada por llegada en lugar de por necesidad
+  const cola = L.filter(l => l.estado === 'oficina' && l.fechaObra);
+  const desordenada = cola.slice().sort((a,b) => parse(plan(a).pedido) - parse(plan(b).pedido))
+                          .some((l,i) => l.enPreparacion === false && cola.some(o => o.enPreparacion && parse(plan(o).pedido) > parse(plan(l).pedido)));
+  if(desordenada) A.push({sev:2, cat:'Orden de la cola',
+    t:'La oficina está preparando algo menos urgente que lo que espera',
+    d:'Hay un despiece en cola cuya fecha de pedido de material vence antes que la del que se está preparando. Se ordena por necesidad real, no por orden de llegada.',
+    src:'Oficina por orden de llegada'});
+  if(cola.length >= 5) A.push({sev:3, cat:'Carga de oficina',
+    t:`${cola.length} órdenes acumuladas en oficina`,
+    d:`Alrededor de <strong>${(cola.length*cfg().horasDespiece).toFixed(0)} horas</strong> de trabajo. El problema no es el tiempo de trabajo, es el tiempo de espera.`,
+    src:'La cola de oficina'});
+
+  // Certificación del mes
+  const m = mesActual(), d = hoy().getDate();
+  S.obras.filter(o => o.activa && (!S.ui.obra || o.id === S.ui.obra)).forEach(o => {
+    const c = S.certs.find(c => c.obraId === o.id && c.mes === m);
+    if(!c) A.push({sev:2, cat:'Certificación', obraId:o.id,
+      t:`${o.nombre}: no hay certificación abierta de ${fMes(m)}`,
+      d:`Cada obra activa genera su tarjeta al empezar el mes. Si un mes no hay producción certificable, se marca «sin certificación» en vez de desaparecer por olvido.`,
+      src:'Certificación mensual'});
+    else if(!c.sinCert && ['pend_info','info_ok','propuesta'].includes(c.estado) && d >= (o.diaLimiteCert - 5))
+      A.push({sev: d > o.diaLimiteCert ? 1 : 2, cat:'Certificación', obraId:o.id,
+        t:`${o.nombre}: día ${o.diaLimiteCert} de límite y la certificación sigue en «${CERT.find(x=>x.id===c.estado).n}»`,
+        d:`El retraso es nuestro, no de la constructora. Contacto: <strong>${esc(c.contacto || o.contactoCert)}</strong>.`,
+        src:'Certificación mensual'});
+  });
+
+  // Trabajo ejecutado pendiente de facturar
+  const pf = L.filter(l => ['repasos','terminado'].includes(l.estado) && !l.facturado);
+  if(pf.length){
+    const tot = pf.reduce((s,l) => s + (l.importe||0), 0);
+    const dmax = Math.max(...pf.map(l => l.fechaObra ? dias(l.fechaObra, h) : 0));
+    A.push({sev: dmax > 30 ? 1 : 2, cat:'Cobro',
+      t:`${eur(tot)} de trabajo ejecutado sin facturar`,
+      d:`${pf.length} lotes montados o en repasos. El más antiguo lleva <strong>${dmax} días</strong> en obra. Es dinero vuestro parado por falta de información, no por falta de trabajo.`,
+      src:'Indicador 5 · el que más duele'});
+  }
+
+  // Obras sin lotes o lotes sin fecha
+  S.obras.filter(o => o.activa && (!S.ui.obra || o.id === S.ui.obra) && !lotesDe(o.id).length)
+    .forEach(o => A.push({sev:3, cat:'Alta incompleta', obraId:o.id,
+      t:`${o.nombre} está dada de alta pero no está partida en lotes`,
+      d:`Una obra no se fabrica de golpe. Hasta que no tenga lotes con fecha, no entra en la planificación.`,
+      src:'Dos niveles, no uno'}));
+  const sinFecha = L.filter(l => activo(l) && !l.fechaObra);
+  if(sinFecha.length) A.push({sev:3, cat:'Sin previsión',
+    t:`${sinFecha.length} lote${sinFecha.length>1?'s':''} sin fecha de obra`,
+    d:`Los jefes de obra pueden avisar con tres semanas de antelación aunque sea solo como previsión. Una previsión imperfecta vale mucho más que enterarse tres días antes.`,
+    src:'Tres horizontes, tres compromisos'});
+
+  return A.sort((a,b) => a.sev - b.sev);
+}
+
+/* ---------- 6. Indicadores ---------- */
+function kpis(){
+  const L = lotesVis(), h = iso(hoy()), sem = new Date(); sem.setDate(sem.getDate()-7);
+  const cambios = S.historial.filter(x => x.tipo === 'prioridad' && new Date(x.ts) >= sem).length;
+  const interrump = L.filter(l => l.subestado === 'parado').length;
+  const trans = L.filter(l => l.transporte.fecha);
+  const transUrg = trans.filter(l => l.transporte.urgente).length;
+  const ocup = trans.length ? Math.round(trans.reduce((s,l)=>s+(l.transporte.ocupacion||0),0)/trans.length) : 0;
+  const cerr = L.filter(l => l.entradaFabrica && l.salidaFabrica);
+  const lead = cerr.length ? (cerr.reduce((s,l)=>s+labEntre(l.entradaFabrica,l.salidaFabrica),0)/cerr.length) : 0;
+  const abiertos = L.filter(l => l.entradaFabrica && !l.salidaFabrica);
+  const pf = L.filter(l => ['repasos','terminado'].includes(l.estado) && !l.facturado);
+  const pfEur = pf.reduce((s,l)=>s+(l.importe||0),0);
+  const pfDias = pf.length ? Math.round(pf.reduce((s,l)=>s+(l.fechaObra?dias(l.fechaObra,h):0),0)/pf.length) : 0;
+  return {cambios, interrump, transUrg, transTot:trans.length, ocup, lead, abiertos:abiertos.length, pfEur, pfDias, pfN:pf.length};
+}
+
+/* ---------- 7. Render ---------- */
+const app = document.getElementById('app');
+const layer = document.getElementById('layer');
+
+function render(){
+  document.getElementById('fObra').innerHTML =
+    '<option value="">Todas las obras</option>' +
+    S.obras.map(o => `<option value="${o.id}"${S.ui.obra===o.id?' selected':''}>${esc(o.nombre)}</option>`).join('');
+  document.getElementById('fUser').innerHTML =
+    PERSONAS.map(p => `<option${S.ui.usuario===p?' selected':''}>${esc(p)}</option>`).join('');
+
+  const nAl = alertas().filter(a => a.sev === 1).length;
+  document.getElementById('tabs').innerHTML = VISTAS.map(v => {
+    const c = v.id === 'alertas' && nAl ? `<span class="cnt hot">${nAl}</span>` : '';
+    return `<button class="tab" data-act="vista" data-v="${v.id}" aria-current="${S.ui.vista===v.id}">${v.n}${c}</button>`;
+  }).join('');
+
+  const V = { alertas:vAlertas, obras:vObras, flujo:vFlujo, semanas:vSemanas, material:vMaterial, cert:vCert, kpi:vKpi };
+  app.innerHTML = barraSync() + barraEjemplo() + (V[S.ui.vista] || vAlertas)();
+  if(S.ui.vista === 'flujo') engancharDrag();
+  pintarSync();
+}
+
+function barraSync(){
+  if(SY.estado === 'conflicto') return `<div class="alert sev1" style="margin-bottom:16px"><div class="stripe"></div>
+    <div class="alert-body"><div class="alert-t"><span class="chip s-rojo">Conflicto</span> Otra persona ha guardado cambios mientras tú trabajabas</div>
+      <div class="alert-d">Para no machacar su trabajo sin querer, no he guardado lo tuyo. Decide qué versión vale.</div></div>
+    <div class="alert-act">
+      <button class="btn btn-sm" data-act="gh-traer">Quedarme con la suya</button>
+      <button class="btn btn-sm btn-primary" data-act="gh-forzar">Guardar la mía</button></div></div>`;
+  if(SY.estado === 'error') return `<div class="alert sev2" style="margin-bottom:16px"><div class="stripe"></div>
+    <div class="alert-body"><div class="alert-t"><span class="chip s-ambar">Sin sincronizar</span> ${esc(SY.error)}</div>
+      <div class="alert-d">Sigues trabajando con normalidad: los cambios se guardan en este equipo y se subirán cuando se resuelva.</div></div>
+    <div class="alert-act"><button class="btn btn-sm" data-act="menu-datos">Revisar conexión</button></div></div>`;
+  return '';
+}
+
+function barraEjemplo(){
+  const n = S.obras.filter(o => o.ejemplo).length;
+  const l = S.lotes.filter(l => l.ejemplo).length;
+  if(!n) return `<div class="demo-bar"><span class="lbl">Ejemplo</span>
+    <p>Has borrado las obras de ejemplo. Puedes reponerlas cuando quieras para volver a probar.</p>
+    <button class="btn btn-sm" data-act="reponer">Reponer ejemplo</button></div>`;
+  return `<div class="demo-bar"><span class="lbl">Ejemplo</span>
+    <p><strong>${n} obras y ${l} lotes de ejemplo</strong> con fechas vivas, para que puedas probarlo hoy mismo. Sustitúyelos por los vuestros cuando arranque el piloto.</p>
+    <button class="btn btn-sm" data-act="reponer">Reponer</button>
+    <button class="btn btn-sm" data-act="quitar-ejemplo">Quitar ejemplo</button></div>`;
+}
+
+/* --- Vista: alertas --- */
+function vAlertas(){
+  const A = alertas(), k = kpis();
+  const c1 = A.filter(a=>a.sev===1).length, c2 = A.filter(a=>a.sev===2).length;
+  const enFab = lotesVis().filter(l => l.estado === 'en_fab').length;
+
+  let h = `<div class="vhead">
+    <div class="eyebrow">Panel de mando · ${fFechaL(iso(hoy()))}</div>
+    <h2>Dónde se atasca hoy el trabajo</h2>
+    <p>Ordenado por lo que cuesta una fecha, no por lo que grita más fuerte. Todo lo de abajo sale de los datos del tablero: nada hay que preguntarlo por teléfono.</p>
+  </div>`;
+
+  h += `<div class="tiles">
+    ${tile(c1, 'Bloqueos', 'fechas en riesgo real', c1?'hot':'')}
+    ${tile(c2, 'Avisos', 'aún hay margen', c2?'warn':'')}
+    ${tile(enFab, 'En fábrica', k.abiertos+' sin cerrar')}
+    ${tile(eur(k.pfEur), 'Sin facturar', k.pfN+' lotes · '+k.pfDias+' d de media', k.pfEur?'warn':'')}
+    ${tile(k.cambios, 'Cambios de prioridad', 'últimos 7 días')}
+  </div>`;
+
+  if(!A.length) return h + `<div class="card empty-state"><h4>Ningún cuello de botella detectado</h4>
+    <p>Con los datos actuales, todos los lotes llegan a su fecha.</p></div>`;
+
+  const grupo = (sev, tit, sub) => {
+    const g = A.filter(a => a.sev === sev);
+    if(!g.length) return '';
+    return `<h3 class="sec">${tit} <span class="rule"></span><span class="mono" style="color:var(--ink-3);font-size:11px">${sub}</span></h3>
+      <div class="alert-grid" style="margin-bottom:22px">${g.map(alertaHTML).join('')}</div>`;
+  };
+  return h + grupo(1,'Hay que decidir hoy','una fecha ya comprometida se rompe')
+           + grupo(2,'Esta semana','todavía se puede corregir sin coste')
+           + grupo(3,'Higiene del tablero','datos que faltan para poder planificar');
+}
+function tile(v, k, n, cls){
+  return `<div class="tile ${cls||''}"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
+}
+function alertaHTML(a){
+  const cls = 'alert sev'+a.sev + (a.urg ? ' urg' : '');
+  const btn = a.loteId ? `<button class="btn btn-sm" data-act="abrir" data-id="${a.loteId}">Abrir lote</button>`
+            : a.obraId ? `<button class="btn btn-sm" data-act="ver-obra" data-id="${a.obraId}">Ver obra</button>` : '';
+  return `<div class="${cls}"><div class="stripe"></div>
+    <div class="alert-body">
+      <div class="alert-t"><span class="chip ${a.sev===1?'s-rojo':a.sev===2?'s-ambar':'s-accent'}">${a.cat}</span> ${esc(a.t)}</div>
+      <div class="alert-d">${a.d}</div>
+      <div class="alert-src">↳ ${esc(a.src)}</div>
+    </div>
+    <div class="alert-act">${btn}</div></div>`;
+}
+
+/* --- Vista: obras y lotes (plan maestro) --- */
+function vObras(){
+  const obras = S.ui.obra ? S.obras.filter(o => o.id === S.ui.obra) : S.obras;
+  let h = `<div class="vhead"><div class="eyebrow">Plan maestro</div>
+    <h2>Las obras y sus lotes</h2>
+    <p>Una obra de 120 viviendas no se fabrica de golpe. La obra es el contenedor; el lote es lo que se mide, se fabrica, se transporta y se monta.</p></div>`;
+  if(!obras.length) return h + vacio('No hay obras dadas de alta', 'Contrato firmado = alta obligatoria de la obra.', 'Dar de alta una obra', 'nueva-obra');
+
+  h += `<div class="grid">` + obras.map(o => {
+    const L = lotesDe(o.id).slice().sort((a,b) => (a.fechaObra||'9999').localeCompare(b.fechaObra||'9999'));
+    const done = L.filter(l => l.estado === 'terminado').length;
+    const seg = ['Preparación','Fábrica','Obra'].map(g => {
+      const n = L.filter(l => ESTADOS[IDX[l.estado]].g === g).length;
+      const col = g==='Preparación'?'var(--gris-line)':g==='Fábrica'?'var(--accent)':'var(--verde)';
+      return n ? `<span style="flex:${n};background:${col}" title="${g}: ${n}"></span>` : '';
+    }).join('');
+    const cert = S.certs.find(c => c.obraId === o.id && c.mes === mesActual());
+
+    return `<article class="obra-card">
+      <div class="obra-h">
+        <div class="t">
+          <h4>${esc(o.nombre)}</h4>
+          <div class="m">${esc(o.constructora)} · ${esc(o.ubicacion)} · responsable ${esc(o.responsable)}</div>
+          <div class="obra-prog">${seg || '<span style="flex:1;background:var(--surface-3)"></span>'}</div>
+        </div>
+        <div style="text-align:right;display:flex;flex-direction:column;gap:5px;align-items:flex-end">
+          <div class="mono" style="font-size:12px;color:var(--ink-3)">Contrato ${fFecha(o.fechaContractual)} · ${done}/${L.length} lotes terminados</div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end">
+            <span class="chip ${cert ? (cert.estado==='cobrada'?'s-verde':cert.sinCert?'s-gris':'s-ambar') : 's-rojo'}">
+              Cert. ${fMes(mesActual())}: ${cert ? (cert.sinCert ? 'sin certificación' : CERT.find(x=>x.id===cert.estado).n) : 'sin abrir'}</span>
+            <button class="btn btn-sm" data-act="editar-obra" data-id="${o.id}">Editar</button>
+            <button class="btn btn-sm btn-primary" data-act="nuevo-lote" data-obra="${o.id}">+ Lote</button>
+          </div>
+        </div>
+      </div>
+      ${L.length ? L.map(loteFila).join('') :
+        `<div class="col-empty" style="padding:20px">Sin lotes. Pártela en bloques, portales o plantas para poder planificar.</div>`}
+    </article>`;
+  }).join('') + `</div>`;
+  return h;
+}
+function loteFila(l){
+  const r = riesgo(l), p = plan(l), pc = Math.round((IDX[l.estado]/(ESTADOS.length-1))*100);
+  const col = r==='rojo'?'var(--rojo)':r==='ambar'?'var(--ambar)':r==='morado'?'var(--morado)':'var(--verde)';
+  const uc = l.ultimoCambio;
+  return `<div class="lote-row" data-act="abrir" data-id="${l.id}" role="button" tabindex="0">
+    <div class="ln"><span class="dot" style="color:${col}"></span>${esc(l.nombre)}
+      ${l.urgente?'<span class="chip s-morado">Urgente</span>':''}</div>
+    <div class="fam hide-s">${esc(l.familia)} · ${l.unidades} ud</div>
+    <div class="mono hide-s" style="font-size:12px">${fFecha(l.fechaObra)}</div>
+    <div class="hide-s"><div style="font-size:11.5px;color:var(--ink-2);margin-bottom:4px">${ESTADOS[IDX[l.estado]].n}</div>
+      <div class="bar"><i style="width:${pc}%;background:${col}"></i></div></div>
+    <div class="hide-s"><span class="chip s-${r}">${RTXT[r]}</span></div>
+    <div class="mono hide-s" style="font-size:10.5px;color:var(--ink-3);text-align:right">
+      ${uc ? esc(uc.quien.split(' ')[0])+' · '+fRel(uc.fecha) : 'sin cambios'}</div>
+  </div>`;
+}
+
+/* --- Vista: flujo (kanban) --- */
+function vFlujo(){
+  const L = lotesVis();
+  let h = `<div class="vhead"><div class="eyebrow">Tablero de lotes</div>
+    <h2>El flujo, de la medición al cobro</h2>
+    <p>Arrastra una tarjeta para moverla de columna. Ningún cambio de prioridad existe oficialmente hasta que aparece aquí: primero se actualiza, después se comunica.</p></div>`;
+
+  h += colaOficina(L);
+
+  h += `<div class="board-wrap"><div class="board">` + ESTADOS.map((e,i) => {
+    const ls = L.filter(l => l.estado === e.id)
+                .sort((a,b) => (a.fechaObra||'9999').localeCompare(b.fechaObra||'9999'));
+    const ud = ls.reduce((s,l)=>s+(l.unidades||0),0);
+    return `<section class="col" data-col="${e.id}">
+      <div class="col-h">
+        <div class="num">${String(i+1).padStart(2,'0')} · ${e.g}</div>
+        <div class="nm"><span>${e.n}</span><span class="qty">${ls.length}${ud?' · '+ud+'u':''}</span></div>
+      </div>
+      <div class="col-b">${ls.length ? ls.map(loteCard).join('') : '<div class="col-empty">vacío</div>'}</div>
+    </section>`;
+  }).join('') + `</div></div>`;
+
+  h += `<div class="legend">
+    <span><i class="sw" style="background:var(--verde)"></i> Fecha confirmada</span>
+    <span><i class="sw" style="background:var(--ambar)"></i> Previsión con riesgo de cambio</span>
+    <span><i class="sw" style="background:var(--rojo)"></i> Plazo imposible o bloqueo</span>
+    <span><i class="sw" style="background:var(--morado)"></i> Urgencia que desplaza otro trabajo</span>
+  </div>`;
+  return h;
+}
+function loteCard(l){
+  const r = riesgo(l), p = plan(l), o = obraDe(l.obraId), h = iso(hoy());
+  let aviso = '';
+  if(l.estado === 'listo_fab'){
+    const f = gatesFaltan(l);
+    if(f.length) aviso = `<div class="warn">▲ Falta ${f.map(x=>x.n.toLowerCase()).join(', ')}</div>`;
+  }
+  if(!aviso && l.estado === 'en_fab' && !l.subestado) aviso = `<div class="warn amb">▲ Sin detalle de en qué punto está</div>`;
+  if(!aviso && l.subestado === 'parado') aviso = `<div class="warn">▲ Parado</div>`;
+  if(!aviso && l.fechaObra && IDX[l.estado] < IDX.en_fab){
+    const m = labEntre(h, p.inicioFab);
+    if(m < 0) aviso = `<div class="warn">▲ Debía entrar en fábrica hace ${-m} d laborables</div>`;
+  }
+  if(!aviso && !l.pedido.fechaPedido && !l.gates.material && l.fechaObra && IDX[l.estado] < IDX.listo_fab && dias(h,p.pedido) < 0)
+    aviso = `<div class="warn">▲ Material sin pedir, plazo vencido</div>`;
+
+  return `<article class="lote r-${r}" draggable="true" data-id="${l.id}" data-act="abrir" tabindex="0">
+    <div class="obra">${esc(o ? o.nombre : '—')}</div>
+    <div class="nm">${esc(l.nombre)}</div>
+    <div class="meta">
+      <span class="fam">${esc(l.familia)} · ${l.unidades}u</span>
+      ${l.urgente?'<span class="chip s-morado">Urg.</span>':''}
+      ${l.subestado?`<span class="chip s-gris">${SUBFAB.find(s=>s.id===l.subestado).n}</span>`:''}
+      ${l.confirmacion==='prevision'?'<span class="chip s-ambar">Previsión</span>':''}
+    </div>
+    <div class="dates"><span title="Fecha de entrega en obra">Obra ${fFecha(l.fechaObra)}</span>
+      <span title="Fecha máxima de inicio en fábrica" style="color:var(--ink-3)">Fáb. ${fFecha(p.inicioFab)}</span></div>
+    ${aviso}
+  </article>`;
+}
+function colaOficina(L){
+  const cola = L.filter(l => l.estado === 'oficina')
+    .sort((a,b) => (plan(a).pedido||'9999').localeCompare(plan(b).pedido||'9999'));
+  if(!cola.length) return '';
+  const horas = (cola.length * cfg().horasDespiece).toFixed(1);
+  return `<details class="card" style="margin-bottom:16px" ${S.ui.colaAbierta?'open':''} data-act="cola">
+    <summary style="padding:11px 15px;cursor:pointer;font-size:13.5px;font-weight:640;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      Cola de oficina
+      <span class="chip s-accent">${cola.length} órdenes · ~${horas} h</span>
+      <span style="font-weight:400;color:var(--ink-3);font-size:12.5px">ordenada por cuándo hace falta, no por cuándo llegó</span>
+    </summary>
+    <div style="border-top:1px solid var(--line)">
+      ${cola.map((l,i) => `<div class="queue-item ${l.enPreparacion?'prep':''}">
+        <span class="pos">${i+1}</span>
+        <div class="q"><b>${esc(obraDe(l.obraId).nombre)} · ${esc(l.nombre)}</b>
+          <small>${esc(l.responsableOficina)} · pedir material antes del ${fFecha(plan(l).pedido)} · obra ${fFecha(l.fechaObra)}</small></div>
+        ${l.enPreparacion?'<span class="chip s-ambar">En preparación</span>':'<span class="chip s-gris">En cola</span>'}
+        <button class="btn btn-sm" data-act="abrir" data-id="${l.id}">Abrir</button>
+      </div>`).join('')}
+    </div>
+    <p class="hint" style="padding:0 15px 13px">El problema no es el tiempo de trabajo, es el tiempo de espera. Solo una orden en preparación por persona; el resto, en cola y a la vista.</p>
+  </details>`;
+}
+
+/* --- Vista: 3 semanas (planificación hacia atrás) --- */
+function vSemanas(){
+  const desde = masDias(iso(hoy()), -4), N = 32, hasta = masDias(desde, N-1);
+  const dd = Array.from({length:N}, (_,i) => masDias(desde, i));
+  const todos = lotesVis().filter(l => l.fechaObra && activo(l))
+    .sort((a,b) => a.fechaObra.localeCompare(b.fechaObra));
+  // Solo entran las barras que se ven: una fila vacía no informa de nada.
+  const L      = todos.filter(l => l.fechaObra >= desde && plan(l).inicioFab <= hasta);
+  const yaEnObra = todos.filter(l => l.fechaObra < desde);
+  const masTarde = todos.filter(l => l.fechaObra >= desde && plan(l).inicioFab > hasta);
+
+  let h = `<div class="vhead"><div class="eyebrow">Horizonte rodante</div>
+    <h2>Planificación hacia atrás</h2>
+    <p>La cuenta se hace desde la fecha de obra hacia atrás: entrega, carga, fabricación, material en casa y pedido. Si el lote entra en fábrica después de su fecha máxima de inicio, se marca en rojo antes de que nadie prometa nada.</p></div>`;
+
+  h += `<div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    ${tile(todos.filter(l=>dias(iso(hoy()),l.fechaObra)<=21 && dias(iso(hoy()),l.fechaObra)>=0).length,'Próximas 3 semanas','lotes con entrega prevista')}
+    ${tile(todos.filter(l=>l.confirmacion==='confirmada').length+'/'+todos.length,'Confirmadas','el resto son previsiones')}
+    ${tile(todos.filter(l=>riesgo(l)==='rojo').length,'En rojo','plazo imposible o bloqueo',todos.filter(l=>riesgo(l)==='rojo').length?'hot':'')}
+  </div>`;
+
+  if(!todos.length) return h + vacio('Ningún lote con fecha de obra', 'Sin fechas no hay planificación posible.', 'Crear un lote', 'nuevo-lote');
+  if(!L.length) h += `<div class="card pad" style="margin-bottom:14px;color:var(--ink-2);font-size:13.5px">Ningún lote fabrica dentro de esta ventana. Abajo tienes los que ya están en obra y los que entran más adelante.</div>`;
+
+  const cols = `220px repeat(${N}, minmax(26px,1fr))`;
+  if(L.length){
+  h += `<div class="tl" style="overflow-x:auto"><div style="min-width:${220+N*30}px">`;
+  h += `<div class="tl-head" style="grid-template-columns:${cols}">
+    <div class="tl-lbl"><div class="b">Lote · familia</div></div>
+    ${dd.map(d => { const x = parse(d), t = d===iso(hoy());
+      return `<div class="tl-dcol ${findes(x)?'we':''} ${t?'today':''}">${DIA[x.getDay()]}<b>${x.getDate()}</b></div>`;}).join('')}
+  </div>`;
+
+  h += L.map(l => {
+    const p = plan(l), r = riesgo(l);
+    const at = s => dd.indexOf(s);
+    const i0 = at(p.inicioFab), i1 = at(p.entrega);
+    const col = r==='rojo'?'var(--rojo)':r==='ambar'?'var(--ambar)':r==='morado'?'var(--morado)':'var(--verde)';
+    const bg  = r==='rojo'?'var(--rojo-bg)':r==='ambar'?'var(--ambar-bg)':r==='morado'?'var(--morado-bg)':'var(--verde-bg)';
+    let bar = '';
+    if(i0 > -1 || i1 > -1){
+      const a = Math.max(0, i0 === -1 ? 0 : i0), b = Math.min(N-1, i1 === -1 ? N-1 : i1);
+      if(b >= a) bar = `<div class="tl-bar" style="left:${(a/N)*100}%;width:${((b-a+1)/N)*100}%;background:${bg};border-color:${col};color:${col}">
+        ${p.diasFab} d ${esc(l.familia)} → ${fFecha(p.entrega)}</div>`;
+    }
+    const mk = (s,lab) => { const i = at(s); return i > -1 ? `<div class="tl-mk" style="left:${((i+.5)/N)*100}%" data-l="${lab}"></div>` : ''; };
+    return `<div class="tl-row" style="grid-template-columns:${cols}" data-act="abrir" data-id="${l.id}" role="button" tabindex="0">
+      <div class="tl-lbl"><div class="a">${esc(l.nombre)} <span class="chip s-${r}" style="font-size:9px">${RTXT[r]}</span></div>
+        <div class="b">${esc(obraDe(l.obraId).nombre)}</div></div>
+      <div class="tl-track" style="grid-column:2 / span ${N}">
+        <div class="tl-grid" style="grid-template-columns:repeat(${N},1fr)">
+          ${dd.map(d => `<i class="${findes(parse(d))?'we':''} ${d===iso(hoy())?'today':''}"></i>`).join('')}
+        </div>
+        ${bar}${mk(p.material,'mat')}${mk(p.finFab,'fin')}
+      </div></div>`;
+  }).join('');
+  h += `</div></div>`;
+  }
+
+  const fila = l => `<button class="queue-item" style="width:100%;text-align:left;background:none" data-act="abrir" data-id="${l.id}">
+      <span class="pos"><span class="dot" style="color:var(--${riesgo(l)==='rojo'?'rojo':riesgo(l)==='ambar'?'ambar':riesgo(l)==='morado'?'morado':'verde'})"></span></span>
+      <span class="q"><b>${esc(obraDe(l.obraId).nombre)} · ${esc(l.nombre)}</b>
+        <small>${ESTADOS[IDX[l.estado]].n} · obra ${fFecha(l.fechaObra)} · ${fRel(l.fechaObra)}</small></span>
+      <span class="chip s-${riesgo(l)}">${RTXT[riesgo(l)]}</span></button>`;
+
+  if(yaEnObra.length) h += `<h3 class="sec" style="margin-top:24px">Ya entregado, pendiente de cerrar <span class="rule"></span>
+      <span class="mono" style="font-size:11px;color:var(--ink-3)">${yaEnObra.length}</span></h3>
+    <div class="card">${yaEnObra.map(fila).join('')}</div>`;
+
+  if(masTarde.length) h += `<h3 class="sec" style="margin-top:24px">Más allá del horizonte <span class="rule"></span>
+      <span class="mono" style="font-size:11px;color:var(--ink-3)">${masTarde.length}</span></h3>
+    <div class="card">${masTarde.map(fila).join('')}</div>
+    <p class="hint">Entran en la ventana según se acerquen. Lo que sí corre desde ya es su pedido de material: míralo en la pestaña Materiales.</p>`;
+
+  // Agrupables por zona y semana: ahorro real de camión
+  const grupos = {};
+  todos.filter(l => l.transporte.fecha && l.transporte.fecha >= iso(hoy())).forEach(l => {
+    const w = Math.floor(dias(iso(hoy()), l.transporte.fecha)/7);
+    (grupos[(l.transporte.zona||'sin zona')+'|'+w] ||= []).push(l);
+  });
+  const comb = Object.entries(grupos).filter(([,v]) => v.length > 1);
+  if(comb.length){
+    h += `<h3 class="sec" style="margin-top:24px">Transportes que se pueden combinar <span class="rule"></span></h3><div class="grid">`;
+    h += comb.map(([k,v]) => {
+      const [zona] = k.split('|');
+      const oc = Math.round(v.reduce((s,l)=>s+(l.transporte.ocupacion||0),0)/v.length);
+      return `<div class="card pad" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span class="chip s-accent">${esc(zona)}</span>
+        <div style="flex:1;min-width:220px"><b style="font-size:13.5px">${v.length} lotes en la misma semana y zona</b>
+          <div style="font-size:12.5px;color:var(--ink-2)">${v.map(l => esc(obraDe(l.obraId).nombre)+' · '+esc(l.nombre)+' ('+fFecha(l.transporte.fecha)+')').join(' · ')}</div></div>
+        <span class="mono" style="font-size:12px;color:${oc<70?'var(--ambar)':'var(--ink-3)'}">ocupación media ${oc}%</span>
+      </div>`;
+    }).join('') + `</div>`;
+    h += `<p class="hint">El encargado de taller puede combinar transportes por cercanía sin pedir permiso, siempre que no toque una fecha pactada con el cliente.</p>`;
+  }
+  return h;
+}
+
+/* --- Vista: materiales --- */
+function vMaterial(){
+  const h0 = iso(hoy());
+  const L = lotesVis().filter(l => activo(l) && l.fechaObra)
+    .sort((a,b) => (plan(a).pedido||'9999').localeCompare(plan(b).pedido||'9999'));
+  let h = `<div class="vhead"><div class="eyebrow">Pedidos ligados a la obra</div>
+    <h2>Material</h2>
+    <p>Un histórico lineal de pedidos no responde a lo único que importa: qué producción se bloquea si ese pedido se retrasa. Aquí cada pedido cuelga de su lote y de su fecha límite.</p></div>`;
+  if(!L.length) return h + vacio('Ningún lote con fecha', 'Sin fecha de obra no se puede calcular cuándo hay que pedir.', 'Crear un lote', 'nuevo-lote');
+
+  const vencidos = L.filter(l => !l.pedido.fechaPedido && !l.gates.material && dias(h0, plan(l).pedido) < 0).length;
+  h += `<div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    ${tile(vencidos,'Fuera de plazo','había que pedirlos ya',vencidos?'hot':'')}
+    ${tile(L.filter(l=>l.pedido.fechaPedido&&!l.pedido.recibido).length,'Pedidos en camino','a la espera de recepción')}
+    ${tile(L.filter(l=>l.gates.material).length,'Material en casa','comprobado y completo')}
+  </div>`;
+
+  h += `<div class="tbl-wrap"><table><thead><tr>
+    <th>Obra · lote</th><th>Familia</th><th>Proveedor</th>
+    <th>Pedir antes de</th><th>Pedido</th><th>Estado</th><th>Bloquea</th><th></th></tr></thead><tbody>`;
+  h += L.map(l => {
+    const p = plan(l), d = dias(h0, p.pedido);
+    let chip;
+    if(l.gates.material) chip = '<span class="chip s-verde">Recibido</span>';
+    else if(l.pedido.recibido) chip = '<span class="chip s-ambar">Llegado, sin comprobar</span>';
+    else if(l.pedido.fechaPedido) chip = `<span class="chip s-accent">Pedido ${fFecha(l.pedido.fechaPedido)}</span>`;
+    else if(d < 0) chip = `<span class="chip s-rojo">${-d} d de retraso</span>`;
+    else if(d <= 7) chip = `<span class="chip s-ambar">Quedan ${d} d</span>`;
+    else chip = '<span class="chip s-gris">Sin pedir</span>';
+    return `<tr>
+      <td><b>${esc(obraDe(l.obraId).nombre)}</b><div style="font-size:12px;color:var(--ink-2)">${esc(l.nombre)}</div></td>
+      <td class="fam">${esc(l.familia)} · ${l.unidades}u</td>
+      <td>${esc(l.pedido.proveedor || '—')}</td>
+      <td class="mono">${fFecha(p.pedido)}</td>
+      <td class="mono">${l.pedido.fechaPedido ? fFecha(l.pedido.fechaPedido) : '—'}</td>
+      <td>${chip}</td>
+      <td style="font-size:12px;color:var(--ink-2)">Fabricación desde el <span class="mono">${fFecha(p.inicioFab)}</span><br>Obra el <span class="mono">${fFecha(l.fechaObra)}</span></td>
+      <td style="white-space:nowrap">
+        ${!l.pedido.fechaPedido ? `<button class="btn btn-sm" data-act="pedir" data-id="${l.id}">Pedido hoy</button>` :
+          !l.gates.material ? `<button class="btn btn-sm" data-act="recibir" data-id="${l.id}">Recibido</button>` : ''}
+        <button class="btn btn-sm btn-ghost" data-act="abrir" data-id="${l.id}">Abrir</button></td>
+    </tr>`;
+  }).join('') + `</tbody></table></div>`;
+  h += `<p class="hint">Plazo de proveedor configurado: ${cfg().semanasMaterial} semanas. Ajústalo en el menú ··· cuando tengáis datos reales de los primeros lotes.</p>`;
+  return h;
+}
+
+/* --- Vista: certificación --- */
+function vCert(){
+  const m = mesActual();
+  const obras = S.obras.filter(o => o.activa && (!S.ui.obra || o.id === S.ui.obra));
+  let h = `<div class="vhead"><div class="eyebrow">Administración</div>
+    <h2>Certificación de ${fMes(m)}</h2>
+    <p>Se distingue de un vistazo si el retraso es vuestro o de la constructora. Si un mes no hay producción certificable, se marca «sin certificación» en lugar de desaparecer por olvido.</p></div>`;
+
+  const faltan = obras.filter(o => !S.certs.some(c => c.obraId === o.id && c.mes === m));
+  if(faltan.length) h += `<div class="alert sev2" style="margin-bottom:16px"><div class="stripe"></div>
+    <div class="alert-body"><div class="alert-t">${faltan.length} obra${faltan.length>1?'s':''} activa${faltan.length>1?'s':''} sin tarjeta de certificación este mes</div>
+    <div class="alert-d">${faltan.map(o=>esc(o.nombre)).join(' · ')}</div></div>
+    <div class="alert-act"><button class="btn btn-sm btn-primary" data-act="abrir-mes">Abrir el mes</button></div></div>`;
+
+  const cs = S.certs.filter(c => c.mes === m && (!S.ui.obra || c.obraId === S.ui.obra));
+  h += `<div class="board-wrap"><div class="board">` + CERT.map((e,i) => {
+    const ls = cs.filter(c => c.estado === e.id);
+    const tot = ls.reduce((s,c)=>s+(c.importe||0),0);
+    return `<section class="col" style="width:220px" data-cert-col="${e.id}">
+      <div class="col-h"><div class="num">${String(i+1).padStart(2,'0')} · ${e.mio?'nuestro':'de la constructora'}</div>
+        <div class="nm"><span>${e.n}</span><span class="qty">${ls.length}</span></div>
+        ${tot?`<div class="qty mono" style="margin-top:3px">${eur(tot)}</div>`:''}</div>
+      <div class="col-b">${ls.length ? ls.map(certCard).join('') : '<div class="col-empty">vacío</div>'}</div>
+    </section>`;
+  }).join('') + `</div></div>`;
+
+  const hist = S.certs.filter(c => c.mes !== m && (!S.ui.obra || c.obraId === S.ui.obra))
+    .sort((a,b) => b.mes.localeCompare(a.mes));
+  if(hist.length){
+    h += `<h3 class="sec" style="margin-top:22px">Meses anteriores <span class="rule"></span></h3>
+    <div class="tbl-wrap"><table><thead><tr><th>Mes</th><th>Obra</th><th>Estado</th><th class="num">Importe</th><th></th></tr></thead><tbody>`;
+    h += hist.map(c => `<tr><td class="mono">${fMes(c.mes)}</td><td>${esc(obraDe(c.obraId)?.nombre||'—')}</td>
+      <td><span class="chip ${c.estado==='cobrada'?'s-verde':c.sinCert?'s-gris':'s-ambar'}">${c.sinCert?'Sin certificación':CERT.find(x=>x.id===c.estado).n}</span></td>
+      <td class="num">${eur(c.importe)}</td>
+      <td><button class="btn btn-sm btn-ghost" data-act="editar-cert" data-id="${c.id}">Abrir</button></td></tr>`).join('');
+    h += `</tbody></table></div>`;
+  }
+  h += `<p class="hint">Mejora barata: pedir al encargado una actualización semanal de lo terminado, para no reconstruir el mes entero a última hora.</p>`;
+  return h;
+}
+function certCard(c){
+  const o = obraDe(c.obraId), d = hoy().getDate();
+  const tarde = !c.sinCert && ['pend_info','info_ok','propuesta'].includes(c.estado) && d > (o?.diaLimiteCert||25);
+  return `<article class="lote ${tarde?'r-rojo':c.estado==='cobrada'?'r-verde':'r-ambar'}" data-act="editar-cert" data-id="${c.id}" tabindex="0">
+    <div class="obra">${esc(o?.nombre||'—')}</div>
+    <div class="nm">${c.sinCert ? 'Sin certificación este mes' : eur(c.importe)}</div>
+    <div class="dates"><span>Límite día ${o?.diaLimiteCert||'—'}</span><span style="color:var(--ink-3)">${esc((c.contacto||o?.contactoCert||'').split(' ')[0])}</span></div>
+    ${tarde?'<div class="warn">▲ Pasado el día límite y aún es cosa nuestra</div>':''}
+  </article>`;
+}
+
+/* --- Vista: indicadores --- */
+function vKpi(){
+  const k = kpis();
+  const sem = Array.from({length:8}, (_,i) => {
+    const a = new Date(); a.setDate(a.getDate() - (7-i)*7);
+    const b = new Date(); b.setDate(b.getDate() - (6-i)*7);
+    return S.historial.filter(x => x.tipo === 'prioridad' && new Date(x.ts) >= a && new Date(x.ts) < b).length;
+  });
+  const mx = Math.max(1, ...sem);
+  let h = `<div class="vhead"><div class="eyebrow">Cinco indicadores, ni uno más</div>
+    <h2>Qué medir</h2>
+    <p>Más de cinco no se sostiene y deja de mirarse. A las cuatro semanas de piloto se comparan con la sensación de partida.</p></div>`;
+
+  h += `<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    ${kpiCard('01','Cambios de prioridad por semana', k.cambios, 'cambios registrados en los últimos 7 días',
+      `<div class="mini">${sem.map(v=>`<i class="${v>3?'hot':''}" style="height:${Math.max(4,(v/mx)*34)}px" title="${v}"></i>`).join('')}</div>
+       <p class="hint" style="margin-top:6px">La semana en curso está protegida: solo se toca por una causa realmente crítica.</p>`)}
+    ${kpiCard('02','Trabajos interrumpidos sin terminar', k.interrump, 'lotes parados dentro de fábrica',
+      `<p class="hint">Antes de empezar otro lote, se termina el que está en producción.</p>`, k.interrump?'hot':'')}
+    ${kpiCard('03','Transportes urgentes y ocupación', k.transUrg+'/'+k.transTot, `ocupación media real ${k.ocup}%`,
+      `<div class="bar" style="height:7px;margin-top:8px"><i style="width:${k.ocup}%;background:${k.ocup<70?'var(--ambar)':'var(--verde)'}"></i></div>
+       <p class="hint" style="margin-top:6px">Un camión a Córdoba en lugar de a Sevilla no aparece en ninguna factura, pero se paga.</p>`, k.transUrg?'warn':'')}
+    ${kpiCard('04','Días de entrada a salida de fábrica', k.lead ? k.lead.toFixed(1) : '—', `${k.abiertos} lotes dentro ahora mismo`,
+      `<p class="hint">Estimación de partida: ${cfg().diasPuertas} d puertas / ${cfg().diasArmarios} d armarios. Se corrige midiendo lotes reales.</p>`)}
+    ${kpiCard('05','Trabajo ejecutado pendiente de facturar', eur(k.pfEur), `${k.pfN} lotes · ${k.pfDias} días de media`,
+      `<p class="hint">Es dinero vuestro parado por falta de información, no por falta de trabajo.</p>`, k.pfEur?'hot':'')}
+  </div>`;
+
+  const H = S.historial.slice(0,26);
+  if(H.length){
+    h += `<h3 class="sec" style="margin-top:24px">Últimos movimientos <span class="rule"></span></h3>
+      <div class="tbl-wrap"><table><thead><tr><th>Cuándo</th><th>Quién</th><th>Qué</th></tr></thead><tbody>`;
+    h += H.map(x => { const d = new Date(x.ts);
+      return `<tr><td class="mono" style="white-space:nowrap">${String(d.getDate()).padStart(2,'0')} ${MES[d.getMonth()]} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}</td>
+      <td>${esc(x.quien)}</td><td>${esc(x.texto)}</td></tr>`; }).join('') + `</tbody></table></div>`;
+  }
+  return h;
+}
+function kpiCard(n, t, v, sub, extra, cls){
+  return `<div class="card pad ${cls==='hot'?'':''}" style="${cls==='hot'?'border-color:var(--rojo-line)':cls==='warn'?'border-color:var(--ambar-line)':''}">
+    <div class="k mono" style="font-size:10.5px;letter-spacing:.12em;color:var(--ink-3)">${n}</div>
+    <div style="font-size:13.5px;font-weight:640;margin-top:3px">${t}</div>
+    <div class="mono" style="font-size:30px;font-weight:600;letter-spacing:-.02em;margin:6px 0 2px;color:${cls==='hot'?'var(--rojo)':cls==='warn'?'var(--ambar)':'var(--ink)'}">${v}</div>
+    <div style="font-size:12px;color:var(--ink-2)">${sub}</div>${extra||''}</div>`;
+}
+
+function vacio(t, p, btn, act){
+  return `<div class="card empty-state"><h4>${t}</h4><p>${p}</p>
+    <button class="btn btn-primary" style="margin-top:14px" data-act="${act}">${btn}</button></div>`;
+}
+
+/* ---------- 8. Panel de detalle del lote ---------- */
+function abrirLote(id){
+  const l = S.lotes.find(x => x.id === id); if(!l) return;
+  const o = obraDe(l.obraId), p = plan(l), h = iso(hoy()), r = riesgo(l);
+  const otros = S.lotes.filter(x => x.id !== l.id && activo(x));
+
+  const hito = (lab, f, nota) => {
+    const past = f && dias(h, f) < 0, now = f && dias(h, f) >= 0 && dias(h, f) <= 2;
+    return `<div class="plan-item ${past?'past':now?'now':''}"><span class="l">${lab}${nota?` <small style="color:var(--ink-3)">${nota}</small>`:''}</span>
+      <span class="r">${fFechaL(f)} <span style="color:var(--ink-3);font-weight:400">${fRel(f)}</span></span></div>`;
+  };
+
+  layer.innerHTML = `<div class="scrim" data-act="cerrar"></div><aside class="drawer" role="dialog" aria-label="Detalle del lote">
+    <div class="drawer-h">
+      <div style="flex:1">
+        <h3>${esc(l.nombre)}</h3>
+        <div class="m">${esc(o.nombre)} · ${esc(o.constructora)}</div>
+      </div>
+      <span class="chip s-${r}">${RTXT[r]}</span>
+      <button class="btn btn-ghost btn-sm" data-act="cerrar" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="drawer-b">
+
+      <div class="fset"><div class="lg">Planificación hacia atrás</div>
+        <div class="plan-list">
+          ${hito('Pedido de material', p.pedido, cfg().semanasMaterial+' sem')}
+          ${hito('Material completo en casa', p.material)}
+          ${hito('Inicio máximo en fábrica', p.inicioFab, p.diasFab+' d de fabricación')}
+          ${hito('Fabricación terminada', p.finFab, cfg().margenCarga+' d de carga')}
+          ${hito('Entrega en obra', p.entrega)}
+        </div>
+        <p class="hint" style="margin:0">Si el lote entra en fábrica después de su fecha máxima de inicio, aparece en rojo antes de que nadie prometa nada.</p>
+      </div>
+
+      <div class="fset"><div class="lg">Lote</div>
+        <div class="frow">
+          <label class="f"><span>Nombre</span><input data-k="nombre" value="${esc(l.nombre)}"></label>
+          <label class="f"><span>Familia</span><select data-k="familia">
+            <option value="puertas"${l.familia==='puertas'?' selected':''}>Puertas</option>
+            <option value="armarios"${l.familia==='armarios'?' selected':''}>Armarios</option></select></label>
+          <label class="f"><span>Unidades</span><input type="number" min="0" data-k="unidades" value="${l.unidades}"></label>
+          <label class="f"><span>Importe (€)</span><input type="number" min="0" data-k="importe" value="${l.importe}"></label>
+          <label class="f"><span>Fecha de entrega en obra</span><input type="date" data-k="fechaObra" value="${l.fechaObra||''}"></label>
+          <label class="f"><span>Grado de confirmación</span><select data-k="confirmacion">
+            <option value="confirmada"${l.confirmacion==='confirmada'?' selected':''}>Confirmada (verde)</option>
+            <option value="prevision"${l.confirmacion==='prevision'?' selected':''}>Previsión (ámbar)</option></select></label>
+          <label class="f"><span>Columna</span><select data-k="estado">
+            ${ESTADOS.map(e=>`<option value="${e.id}"${l.estado===e.id?' selected':''}>${e.n}</option>`).join('')}</select></label>
+          <label class="f"><span>Detalle en fábrica</span><select data-k="subestado">
+            ${SUBFAB.map(s=>`<option value="${s.id}"${l.subestado===s.id?' selected':''}>${s.n}</option>`).join('')}</select></label>
+        </div>
+      </div>
+
+      <div class="fset"><div class="lg">¿Está listo para fabricar?</div>
+        ${GATES.map(g => `<label class="chk ${l.gates[g.id]?'ok':''}">
+          <input type="checkbox" data-gate="${g.id}"${l.gates[g.id]?' checked':''}><span>${g.n}</span></label>`).join('')}
+        ${gatesFaltan(l).length ? `<p class="hint" style="color:var(--rojo);margin:0">Mientras falte algo, el lote se queda visible como bloqueado indicando exactamente qué falta.</p>` : ''}
+      </div>
+
+      <div class="fset"><div class="lg">Oficina</div>
+        <div class="frow">
+          <label class="f"><span>Responsable del despiece</span><select data-k="responsableOficina">
+            ${PERSONAS.map(p2=>`<option${l.responsableOficina===p2?' selected':''}>${esc(p2)}</option>`).join('')}</select></label>
+          <label class="chk ${l.enPreparacion?'ok':''}" style="align-self:end">
+            <input type="checkbox" data-k="enPreparacion"${l.enPreparacion?' checked':''}>
+            <span>En preparación ahora<small>Solo una por persona</small></span></label>
+        </div>
+      </div>
+
+      <div class="fset"><div class="lg">Material</div>
+        <div class="frow">
+          <label class="f"><span>Proveedor</span><input data-p="proveedor" value="${esc(l.pedido.proveedor)}"></label>
+          <label class="f"><span>Fecha del pedido</span><input type="date" data-p="fechaPedido" value="${l.pedido.fechaPedido||''}"></label>
+          <label class="f"><span>Llegada prevista</span><input type="date" data-p="fechaLlegada" value="${l.pedido.fechaLlegada||''}"></label>
+          <label class="chk ${l.pedido.recibido?'ok':''}" style="align-self:end">
+            <input type="checkbox" data-p="recibido"${l.pedido.recibido?' checked':''}><span>Recibido en taller</span></label>
+        </div>
+      </div>
+
+      <div class="fset"><div class="lg">Transporte y acceso a obra</div>
+        <div class="frow">
+          <label class="f"><span>Fecha de entrada</span><input type="date" data-t="fecha" value="${l.transporte.fecha||''}"></label>
+          <label class="f"><span>Zona</span><input data-t="zona" value="${esc(l.transporte.zona)}" placeholder="Cáceres, Jerte…"></label>
+          <label class="f"><span>Ocupación del camión (%)</span><input type="number" min="0" max="100" data-t="ocupacion" value="${l.transporte.ocupacion}"></label>
+          <label class="f"><span>Documentación de acceso</span><select data-k="docAcceso">
+            <option value="no"${l.docAcceso==='no'?' selected':''}>Sin solicitar</option>
+            <option value="solicitada"${l.docAcceso==='solicitada'?' selected':''}>Solicitada</option>
+            <option value="aprobada"${l.docAcceso==='aprobada'?' selected':''}>Aprobada</option></select></label>
+          <label class="chk" style="grid-column:1/-1"><input type="checkbox" data-t="urgente"${l.transporte.urgente?' checked':''}>
+            <span>Transporte urgente<small>De un día para otro o fuera de ruta</small></span></label>
+        </div>
+      </div>
+
+      <div class="fset"><div class="lg">Prioridad</div>
+        <label class="chk ${l.urgente?'ok':''}"><input type="checkbox" data-k="urgente"${l.urgente?' checked':''}>
+          <span>Urgencia activa<small>Una urgencia puede ser necesaria; lo que no puede ser es invisible y gratuita</small></span></label>
+        ${l.urgente ? `<label class="f"><span>¿A qué lote desplaza?</span><select data-k="desplazaA">
+          <option value="">— indicar qué se detiene —</option>
+          ${otros.map(x=>`<option value="${x.id}"${l.desplazaA===x.id?' selected':''}>${esc(obraDe(x.obraId).nombre)} · ${esc(x.nombre)} (${fFecha(x.fechaObra)})</option>`).join('')}
+        </select></label>` : ''}
+        ${l.desplazaA && S.lotes.find(x=>x.id===l.desplazaA) ? (()=>{ const d = S.lotes.find(x=>x.id===l.desplazaA);
+          return `<p class="hint" style="color:var(--morado);margin:0">Al activarla, <strong>${esc(obraDe(d.obraId).nombre)} · ${esc(d.nombre)}</strong> se detiene y su fecha del ${fFecha(d.fechaObra)} se resiente.</p>`;})() : ''}
+      </div>
+
+      <div class="fset"><div class="lg">Cierre</div>
+        <div class="frow">
+          <label class="f"><span>Entrada en fábrica</span><input type="date" data-k="entradaFabrica" value="${l.entradaFabrica||''}"></label>
+          <label class="f"><span>Salida de fábrica</span><input type="date" data-k="salidaFabrica" value="${l.salidaFabrica||''}"></label>
+        </div>
+        <label class="chk ${l.facturado?'ok':''}"><input type="checkbox" data-k="facturado"${l.facturado?' checked':''}><span>Facturado</span></label>
+        <label class="f"><span>Notas</span><textarea data-k="notas">${esc(l.notas)}</textarea></label>
+      </div>
+
+      ${l.ultimoCambio ? `<p class="hint">Último cambio: ${esc(l.ultimoCambio.quien)} · ${fRel(l.ultimoCambio.fecha)} · ${esc(l.ultimoCambio.texto||'')}</p>` : ''}
+    </div>
+    <div class="drawer-f">
+      <button class="btn" data-act="borrar-lote" data-id="${l.id}">Borrar</button>
+      <div style="display:flex;gap:8px">
+        <button class="btn" data-act="duplicar" data-id="${l.id}">Duplicar</button>
+        <button class="btn btn-primary" data-act="cerrar">Hecho</button>
+      </div>
+    </div></aside>`;
+
+  const d = layer.querySelector('.drawer');
+  d.addEventListener('change', e => {
+    const t = e.target;
+    const antes = { estado:l.estado, urgente:l.urgente, fechaObra:l.fechaObra };
+    if(t.dataset.k){
+      const k = t.dataset.k;
+      let v = t.type === 'checkbox' ? t.checked : t.type === 'number' ? (+t.value || 0) : t.value;
+      l[k] = v;
+      if(k === 'estado'){
+        if(v === 'en_fab' && !l.entradaFabrica) l.entradaFabrica = iso(hoy());
+        if(IDX[v] >= IDX.listo_env && !l.salidaFabrica) l.salidaFabrica = iso(hoy());
+        log('estado', `${l.nombre}: ${ESTADOS[IDX[antes.estado]].n} → ${ESTADOS[IDX[v]].n}`, l.id);
+      }
+      if(k === 'urgente') log('prioridad', `${l.nombre}: urgencia ${v?'activada':'retirada'}`, l.id);
+      if(k === 'fechaObra' && antes.fechaObra !== v) log('fecha', `${l.nombre}: fecha de obra ${fFecha(antes.fechaObra)} → ${fFecha(v)}`, l.id);
+    }
+    else if(t.dataset.gate){ l.gates[t.dataset.gate] = t.checked; if(t.dataset.gate === 'material') l.pedido.recibido = t.checked || l.pedido.recibido; }
+    else if(t.dataset.p){ l.pedido[t.dataset.p] = t.type === 'checkbox' ? t.checked : t.value; }
+    else if(t.dataset.t){ l.transporte[t.dataset.t] = t.type === 'checkbox' ? t.checked : t.type === 'number' ? (+t.value||0) : t.value; }
+    l.ultimoCambio = { quien:S.ui.usuario, fecha:iso(hoy()), texto:'actualización del lote' };
+    guardar(); render(); abrirLote(l.id);
+  });
+}
+
+/* ---------- 9. Formularios de alta ---------- */
+function formObra(id){
+  const o = id ? obraDe(id) : null;
+  const v = o || { nombre:'', constructora:'', ubicacion:'', zona:'', responsable:'Alejandro',
+    fechaContractual:iso(hoy()), formaFacturacion:'Certificación mensual', contactoCert:'', diaLimiteCert:25,
+    requisitosDoc:'', activa:true };
+  layer.innerHTML = `<div class="scrim" data-act="cerrar"></div><aside class="drawer" role="dialog" aria-label="${o?'Editar':'Nueva'} obra">
+    <div class="drawer-h"><div style="flex:1"><h3>${o?'Editar obra':'Nueva obra'}</h3>
+      <div class="m">Contrato firmado = alta obligatoria</div></div>
+      <button class="btn btn-ghost btn-sm" data-act="cerrar" aria-label="Cerrar">✕</button></div>
+    <div class="drawer-b"><form id="fo" class="fset">
+      <div class="lg">Identificación</div>
+      <div class="frow">
+        <label class="f" style="grid-column:1/-1"><span>Nombre de la obra</span><input name="nombre" required value="${esc(v.nombre)}" placeholder="Residencial Los Olivos"></label>
+        <label class="f"><span>Constructora / cliente</span><input name="constructora" value="${esc(v.constructora)}"></label>
+        <label class="f"><span>Ubicación</span><input name="ubicacion" value="${esc(v.ubicacion)}"></label>
+        <label class="f"><span>Zona de transporte</span><input name="zona" value="${esc(v.zona)}" placeholder="Cáceres, Jerte, Sevilla…"></label>
+        <label class="f"><span>Responsable</span><select name="responsable">${PERSONAS.map(p=>`<option${v.responsable===p?' selected':''}>${esc(p)}</option>`).join('')}</select></label>
+        <label class="f"><span>Fecha de contrato</span><input type="date" name="fechaContractual" value="${v.fechaContractual}"></label>
+        <label class="f"><span>Forma de facturación</span><input name="formaFacturacion" value="${esc(v.formaFacturacion)}"></label>
+        <label class="f"><span>Contacto de certificación</span><input name="contactoCert" value="${esc(v.contactoCert)}"></label>
+        <label class="f"><span>Día límite de certificación</span><input type="number" min="1" max="31" name="diaLimiteCert" value="${v.diaLimiteCert}"></label>
+        <label class="f" style="grid-column:1/-1"><span>Requisitos documentales de acceso</span><textarea name="requisitosDoc">${esc(v.requisitosDoc)}</textarea></label>
+      </div>
+      ${o ? '' : `<div class="lg" style="margin-top:8px">Partir en lotes ahora</div>
+      <p class="hint" style="margin:0">Una obra de 120 viviendas no se fabrica de golpe. Créala ya dividida y ahorra el alta uno a uno.</p>
+      <div class="frow">
+        <label class="f"><span>¿Cuántos lotes?</span><input type="number" min="0" max="40" name="nLotes" value="4"></label>
+        <label class="f"><span>Se llaman</span><select name="prefijo"><option>Bloque</option><option>Portal</option><option>Planta</option><option>Fase</option></select></label>
+        <label class="f"><span>Familia</span><select name="famLotes"><option value="puertas">Puertas</option><option value="armarios">Armarios</option></select></label>
+        <label class="f"><span>Primera entrega en obra</span><input type="date" name="primera" value="${masDias(iso(hoy()),35)}"></label>
+        <label class="f"><span>Semanas entre lotes</span><input type="number" min="1" max="12" name="sepSem" value="3"></label>
+        <label class="f"><span>Unidades por lote</span><input type="number" min="0" name="udLote" value="24"></label>
+      </div>`}
+    </form></div>
+    <div class="drawer-f"><span></span><div style="display:flex;gap:8px">
+      ${o?`<button class="btn" data-act="borrar-obra" data-id="${o.id}">Borrar obra</button>`:''}
+      <button class="btn btn-primary" data-act="guardar-obra" data-id="${o?o.id:''}">${o?'Guardar':'Crear obra'}</button>
+    </div></div></aside>`;
+}
+
+function formLote(obraId){
+  if(!S.obras.length){ toast('Primero da de alta una obra'); return formObra(); }
+  const oid = obraId || S.ui.obra || S.obras[0].id;
+  layer.innerHTML = `<div class="scrim" data-act="cerrar"></div><aside class="drawer" role="dialog" aria-label="Nuevo lote">
+    <div class="drawer-h"><div style="flex:1"><h3>Nuevo lote</h3>
+      <div class="m">La unidad que se mide, se fabrica y se monta</div></div>
+      <button class="btn btn-ghost btn-sm" data-act="cerrar" aria-label="Cerrar">✕</button></div>
+    <div class="drawer-b"><form id="fl" class="fset">
+      <div class="frow">
+        <label class="f" style="grid-column:1/-1"><span>Obra</span><select name="obraId">
+          ${S.obras.map(o=>`<option value="${o.id}"${o.id===oid?' selected':''}>${esc(o.nombre)}</option>`).join('')}</select></label>
+        <label class="f"><span>Nombre del lote</span><input name="nombre" required placeholder="Bloque A" value="Bloque A"></label>
+        <label class="f"><span>Familia</span><select name="familia"><option value="puertas">Puertas</option><option value="armarios">Armarios</option></select></label>
+        <label class="f"><span>Unidades</span><input type="number" min="0" name="unidades" value="24"></label>
+        <label class="f"><span>Importe (€)</span><input type="number" min="0" name="importe" value="0"></label>
+        <label class="f"><span>Entrega en obra</span><input type="date" name="fechaObra" value="${masDias(iso(hoy()),30)}"></label>
+        <label class="f"><span>Confirmación</span><select name="confirmacion">
+          <option value="prevision">Previsión (ámbar)</option><option value="confirmada">Confirmada (verde)</option></select></label>
+        <label class="f"><span>Columna inicial</span><select name="estado">
+          ${ESTADOS.map(e=>`<option value="${e.id}">${e.n}</option>`).join('')}</select></label>
+        <label class="f"><span>Responsable del despiece</span><select name="responsableOficina">
+          ${PERSONAS.map(p=>`<option${p==='María Jesús'?' selected':''}>${esc(p)}</option>`).join('')}</select></label>
+      </div>
+      <p class="hint" style="margin:0">Al guardar verás de inmediato cuándo hay que pedir el material y cuál es la fecha máxima de entrada en fábrica.</p>
+    </form></div>
+    <div class="drawer-f"><span></span>
+      <button class="btn btn-primary" data-act="guardar-lote">Crear lote</button></div></aside>`;
+}
+
+function formCert(id){
+  const c = S.certs.find(x => x.id === id); if(!c) return;
+  const o = obraDe(c.obraId);
+  layer.innerHTML = `<div class="scrim" data-act="cerrar"></div><aside class="drawer" role="dialog" aria-label="Certificación">
+    <div class="drawer-h"><div style="flex:1"><h3>Certificación ${fMes(c.mes)}</h3>
+      <div class="m">${esc(o?.nombre||'')} · límite día ${o?.diaLimiteCert||'—'}</div></div>
+      <button class="btn btn-ghost btn-sm" data-act="cerrar" aria-label="Cerrar">✕</button></div>
+    <div class="drawer-b"><div class="fset">
+      <div class="frow">
+        <label class="f" style="grid-column:1/-1"><span>Estado</span><select data-c="estado">
+          ${CERT.map(e=>`<option value="${e.id}"${c.estado===e.id?' selected':''}>${e.n} — ${e.mio?'depende de nosotros':'depende de la constructora'}</option>`).join('')}</select></label>
+        <label class="f"><span>Importe (€)</span><input type="number" min="0" data-c="importe" value="${c.importe}"></label>
+        <label class="f"><span>Contacto</span><input data-c="contacto" value="${esc(c.contacto||o?.contactoCert||'')}"></label>
+      </div>
+      <label class="chk ${c.sinCert?'ok':''}"><input type="checkbox" data-c="sinCert"${c.sinCert?' checked':''}>
+        <span>Sin certificación este mes<small>Se marca en lugar de desaparecer por olvido</small></span></label>
+      <label class="f"><span>Notas</span><textarea data-c="notas">${esc(c.notas||'')}</textarea></label>
+    </div></div>
+    <div class="drawer-f"><button class="btn" data-act="borrar-cert" data-id="${c.id}">Borrar</button>
+      <button class="btn btn-primary" data-act="cerrar">Hecho</button></div></aside>`;
+  layer.querySelector('.drawer').addEventListener('change', e => {
+    const t = e.target; if(!t.dataset.c) return;
+    c[t.dataset.c] = t.type === 'checkbox' ? t.checked : t.type === 'number' ? (+t.value||0) : t.value;
+    log('cert', `Certificación ${fMes(c.mes)} de ${o?.nombre}: ${CERT.find(x=>x.id===c.estado).n}`);
+    guardar(); render(); formCert(id);
+  });
+}
+
+function menuDatos(){
+  const c = cfg();
+  layer.innerHTML = `<div class="scrim" data-act="cerrar"></div><aside class="drawer" role="dialog" aria-label="Datos y ajustes">
+    <div class="drawer-h"><div style="flex:1"><h3>Datos y ajustes</h3>
+      <div class="m">Una sola plataforma oficial</div></div>
+      <button class="btn btn-ghost btn-sm" data-act="cerrar" aria-label="Cerrar">✕</button></div>
+    <div class="drawer-b">
+      <div class="fset"><div class="lg">Plazos técnicos de partida</div>
+        <p class="hint" style="margin:0">No son cifras sagradas: son la estimación de partida y se corrigen midiendo los lotes reales durante unas semanas.</p>
+        <div class="frow">
+          <label class="f"><span>Fabricación puertas (d lab.)</span><input type="number" min="1" data-cfg="diasPuertas" value="${c.diasPuertas}"></label>
+          <label class="f"><span>Fabricación armarios (d lab.)</span><input type="number" min="1" data-cfg="diasArmarios" value="${c.diasArmarios}"></label>
+          <label class="f"><span>Carga y margen (d lab.)</span><input type="number" min="0" data-cfg="margenCarga" value="${c.margenCarga}"></label>
+          <label class="f"><span>Plazo de material (semanas)</span><input type="number" min="1" max="12" data-cfg="semanasMaterial" value="${c.semanasMaterial}"></label>
+          <label class="f"><span>Horas por despiece</span><input type="number" step="0.5" min="0" data-cfg="horasDespiece" value="${c.horasDespiece}"></label>
+          <label class="f"><span>Aviso si lleva en fábrica (d lab.)</span><input type="number" min="1" data-cfg="diasFabAviso" value="${c.diasFabAviso}"></label>
+        </div>
+      </div>
+      <div class="fset"><div class="lg">Datos compartidos · GitHub</div>
+        <p class="hint" style="margin:0">El repositorio hace de almacén: cada guardado es un commit, con el historial de quién cambió qué y la posibilidad de volver atrás. Para que varias personas compartan tablero, todas apuntan al mismo repositorio, rama y archivo.</p>
+        <div class="frow">
+          <label class="f"><span>Usuario u organización</span><input data-gh="owner" value="${esc(GH.owner)}" placeholder="consueloverdu"></label>
+          <label class="f"><span>Repositorio</span><input data-gh="repo" value="${esc(GH.repo)}" placeholder="carpinterias-manzano"></label>
+          <label class="f"><span>Rama</span><input data-gh="branch" value="${esc(GH.branch)}"></label>
+          <label class="f"><span>Archivo de datos</span><input data-gh="path" value="${esc(GH.path)}"></label>
+          <label class="f" style="grid-column:1/-1"><span>Token de acceso</span>
+            <input type="password" data-gh="token" value="${esc(GH.token)}" placeholder="github_pat_…" autocomplete="off"></label>
+        </div>
+        <p class="hint" style="margin:0;color:var(--ambar)">El token se guarda en este navegador, así que cualquiera que use este ordenador puede leerlo. Crea uno <em>fine-grained</em> limitado a este único repositorio, con permiso «Contents: Read and write» y con fecha de caducidad. Y ten el repositorio en privado: va a contener obras y constructoras reales.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" data-act="gh-traer">Traer del repositorio</button>
+          <button class="btn" data-act="gh-guardar">Guardar ahora</button>
+          ${ghActivo()?'<button class="btn" data-act="gh-desconectar">Desconectar</button>':''}
+        </div>
+        <p class="hint" style="margin:0">Necesita salida a api.github.com: funciona con el archivo abierto en tu ordenador, en GitHub Pages o en SharePoint. Dentro del visor de artefactos de Claude no, porque bloquea las llamadas a otros servidores.</p>
+      </div>
+
+      <div class="fset"><div class="lg">Llevarlo a Microsoft 365</div>
+        <p class="hint" style="margin:0">El piloto se monta sin ERP. Descarga la tabla de lotes y pégala en Excel o SharePoint.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn" data-act="csv">Descargar lotes (CSV)</button>
+          <button class="btn" data-act="json">Copia de seguridad (JSON)</button>
+          <button class="btn" data-act="importar">Restaurar copia</button>
+        </div>
+      </div>
+      <div class="fset"><div class="lg">Ejemplo</div>
+        <p class="hint" style="margin:0">Las cuatro obras marcadas como ejemplo están para sustituirlas por las vuestras. Puedes reponerlas siempre que quieras.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn" data-act="reponer">Reponer ejemplo</button>
+          <button class="btn" data-act="quitar-ejemplo">Quitar ejemplo</button>
+          <button class="btn" data-act="reset">Empezar de cero</button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-f"><span></span><button class="btn btn-primary" data-act="cerrar">Hecho</button></div></aside>`;
+  layer.querySelector('.drawer').addEventListener('change', e => {
+    const t = e.target;
+    if(t.dataset.cfg){ S.config[t.dataset.cfg] = +t.value || 0; guardar(); render(); return; }
+    if(t.dataset.gh){ GH[t.dataset.gh] = t.value.trim(); ghGuardarCfg(); pintarSync(); }
+  });
+}
+
+/* ---------- 10. Acciones ---------- */
+const cerrar = () => { layer.innerHTML = ''; };
+function toast(m){
+  const d = document.createElement('div'); d.className = 'toast'; d.textContent = m;
+  document.body.appendChild(d); setTimeout(() => d.remove(), 2600);
+}
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-act]'); if(!t) return;
+  const a = t.dataset.act, id = t.dataset.id;
+
+  if(a === 'cola') return;
+  if(['abrir','editar-obra','nuevo-lote','editar-cert','ver-obra'].includes(a)) e.stopPropagation();
+
+  switch(a){
+    case 'vista': S.ui.vista = t.dataset.v; guardar(); render(); window.scrollTo({top:0}); break;
+    case 'cerrar': cerrar(); break;
+    case 'abrir': abrirLote(id); break;
+    case 'nueva-obra': case 'obra': formObra(); break;
+    case 'editar-obra': formObra(id); break;
+    case 'nuevo-lote': formLote(t.dataset.obra); break;
+    case 'editar-cert': formCert(id); break;
+    case 'ver-obra': S.ui.obra = id; S.ui.vista = 'obras'; guardar(); render(); break;
+
+    case 'guardar-obra': {
+      const f = new FormData(document.getElementById('fo'));
+      const d = Object.fromEntries(f.entries());
+      if(!d.nombre.trim()){ toast('La obra necesita un nombre'); break; }
+      if(id){
+        Object.assign(obraDe(id), { nombre:d.nombre, constructora:d.constructora, ubicacion:d.ubicacion, zona:d.zona,
+          responsable:d.responsable, fechaContractual:d.fechaContractual, formaFacturacion:d.formaFacturacion,
+          contactoCert:d.contactoCert, diaLimiteCert:+d.diaLimiteCert||25, requisitosDoc:d.requisitosDoc });
+        log('obra', `Obra actualizada: ${d.nombre}`);
+      } else {
+        const o = { id:uid('o'), nombre:d.nombre, constructora:d.constructora, ubicacion:d.ubicacion, zona:d.zona,
+          responsable:d.responsable, fechaContractual:d.fechaContractual, formaFacturacion:d.formaFacturacion,
+          contactoCert:d.contactoCert, diaLimiteCert:+d.diaLimiteCert||25, requisitosDoc:d.requisitosDoc, activa:true, ejemplo:false };
+        S.obras.push(o); log('alta', `Alta de obra: ${o.nombre}`);
+        const n = +d.nLotes || 0;
+        for(let i = 0; i < n; i++){
+          S.lotes.push(nuevoLote({ obraId:o.id, nombre:`${d.prefijo} ${String.fromCharCode(65+i)}`,
+            familia:d.famLotes, unidades:+d.udLote||0,
+            fechaObra: masDias(d.primera, i * (+d.sepSem||3) * 7), confirmacion:'prevision' }));
+        }
+        if(n) log('alta', `${n} lotes creados en ${o.nombre}`);
+        abrirMes(o.id);
+      }
+      guardar(); cerrar(); render(); toast(id ? 'Obra guardada' : 'Obra creada'); break;
+    }
+    case 'guardar-lote': {
+      const f = new FormData(document.getElementById('fl'));
+      const d = Object.fromEntries(f.entries());
+      if(!d.nombre.trim()){ toast('El lote necesita un nombre'); break; }
+      const l = nuevoLote({ obraId:d.obraId, nombre:d.nombre, familia:d.familia, unidades:+d.unidades||0,
+        importe:+d.importe||0, fechaObra:d.fechaObra, confirmacion:d.confirmacion, estado:d.estado,
+        responsableOficina:d.responsableOficina });
+      S.lotes.push(l); log('alta', `Nuevo lote: ${obraDe(d.obraId).nombre} · ${l.nombre}`, l.id);
+      guardar(); cerrar(); render(); abrirLote(l.id); break;
+    }
+    case 'duplicar': {
+      const l = S.lotes.find(x => x.id === id);
+      const cp = JSON.parse(JSON.stringify(l));
+      cp.id = uid('l'); cp.nombre = siguienteNombre(l.nombre); cp.ejemplo = false;
+      cp.fechaObra = l.fechaObra ? masDias(l.fechaObra, 21) : '';
+      cp.estado = 'por_medir'; cp.entradaFabrica = null; cp.salidaFabrica = null; cp.facturado = false;
+      cp.urgente = false; cp.desplazaA = null; cp.subestado = '';
+      GATES.forEach(g => cp.gates[g.id] = false);
+      cp.pedido = { proveedor:l.pedido.proveedor, fechaPedido:null, fechaLlegada:null, recibido:false };
+      cp.transporte = { fecha:'', destino:l.transporte.destino, zona:l.transporte.zona, ocupacion:0, urgente:false };
+      S.lotes.push(cp); log('alta', `Lote duplicado: ${cp.nombre}`, cp.id);
+      guardar(); render(); abrirLote(cp.id); toast('Lote duplicado tres semanas después'); break;
+    }
+    case 'borrar-lote': {
+      const l = S.lotes.find(x => x.id === id);
+      if(confirm(`¿Borrar el lote «${l.nombre}»?`)){ S.lotes = S.lotes.filter(x => x.id !== id);
+        log('baja', `Lote borrado: ${l.nombre}`); guardar(); cerrar(); render(); } break;
+    }
+    case 'borrar-obra': {
+      const o = obraDe(id);
+      if(confirm(`¿Borrar «${o.nombre}» y sus ${lotesDe(id).length} lotes?`)){
+        S.obras = S.obras.filter(x => x.id !== id);
+        S.lotes = S.lotes.filter(x => x.obraId !== id);
+        S.certs = S.certs.filter(x => x.obraId !== id);
+        if(S.ui.obra === id) S.ui.obra = '';
+        log('baja', `Obra borrada: ${o.nombre}`); guardar(); cerrar(); render(); } break;
+    }
+    case 'borrar-cert': S.certs = S.certs.filter(x => x.id !== id); guardar(); cerrar(); render(); break;
+    case 'abrir-mes': S.obras.filter(o => o.activa).forEach(o => abrirMes(o.id)); guardar(); render(); toast('Certificaciones del mes abiertas'); break;
+    case 'pedir': { const l = S.lotes.find(x => x.id === id); l.pedido.fechaPedido = iso(hoy());
+      l.pedido.fechaLlegada = masDias(iso(hoy()), cfg().semanasMaterial*7);
+      log('material', `Pedido cursado: ${l.nombre}`, l.id); guardar(); render(); toast('Pedido registrado hoy'); break; }
+    case 'recibir': { const l = S.lotes.find(x => x.id === id); l.pedido.recibido = true; l.gates.material = true;
+      if(l.estado === 'material') l.estado = 'listo_fab';
+      log('material', `Material recibido y comprobado: ${l.nombre}`, l.id); guardar(); render(); toast('Material comprobado'); break; }
+    case 'reponer': sembrarEjemplo(); guardar(); render(); toast('Ejemplo repuesto con fechas de hoy'); break;
+    case 'quitar-ejemplo':
+      if(confirm('¿Quitar las obras y lotes de ejemplo? Podrás reponerlos cuando quieras.')){
+        S.obras = S.obras.filter(o => !o.ejemplo);
+        S.lotes = S.lotes.filter(l => !l.ejemplo);
+        S.certs = S.certs.filter(c => !c.ejemplo);
+        if(!S.obras.some(o => o.id === S.ui.obra)) S.ui.obra = '';
+        guardar(); cerrar(); render(); } break;
+    case 'reset':
+      if(confirm('¿Borrar todo y empezar de cero? Se repondrá solo el ejemplo.')){
+        S = nuevoEstado(); sembrarEjemplo(); guardar(); cerrar(); render(); } break;
+    case 'csv': exportarCSV(); break;
+    case 'json': exportarJSON(); break;
+    case 'importar': importarJSON(); break;
+    case 'menu-datos': menuDatos(); break;
+    case 'gh-traer': ghTraer(false); break;
+    case 'gh-guardar':
+      if(!ghActivo()){ toast('Rellena usuario, repositorio y token'); break; }
+      ghEmpujar(false).then(() => { if(SY.estado === 'ok') toast('Guardado en el repositorio'); }); break;
+    case 'gh-forzar':
+      if(confirm('Se sobrescribirá lo que haya guardado la otra persona. ¿Seguro?')) ghEmpujar(true).then(render);
+      break;
+    case 'gh-desconectar':
+      if(confirm('¿Dejar de compartir? Los datos se quedan en este equipo y el token se borra de este navegador.')){
+        clearTimeout(SY.timer);
+        GH = { owner:'', repo:'', branch:'main', path:'datos/tablero.json', token:'' };
+        ghGuardarCfg(); SY = { sha:null, estado:'local', ultimo:null, error:'', timer:null };
+        cerrar(); render(); } break;
+  }
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && layer.innerHTML) cerrar();
+  if(e.key === 'Enter' && e.target.closest('[data-act="abrir"]')){ e.preventDefault(); abrirLote(e.target.closest('[data-act]').dataset.id); }
+});
+document.getElementById('fObra').addEventListener('change', e => { S.ui.obra = e.target.value; guardar(); render(); });
+document.getElementById('fUser').addEventListener('change', e => { S.ui.usuario = e.target.value; guardar(); });
+document.getElementById('bObra').addEventListener('click', () => formObra());
+document.getElementById('bLote').addEventListener('click', () => formLote());
+document.getElementById('bMenu').addEventListener('click', menuDatos);
+
+/* --- Arrastrar tarjetas entre columnas --- */
+function engancharDrag(){
+  let arr = null;
+  app.querySelectorAll('.lote[draggable]').forEach(c => {
+    c.addEventListener('dragstart', e => { arr = c.dataset.id; c.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; });
+    c.addEventListener('dragend', () => { c.classList.remove('dragging'); arr = null;
+      app.querySelectorAll('.col').forEach(x => x.classList.remove('drop')); });
+  });
+  app.querySelectorAll('.col[data-col]').forEach(col => {
+    col.addEventListener('dragover', e => { e.preventDefault(); col.classList.add('drop'); });
+    col.addEventListener('dragleave', () => col.classList.remove('drop'));
+    col.addEventListener('drop', e => {
+      e.preventDefault(); col.classList.remove('drop');
+      const l = S.lotes.find(x => x.id === arr); if(!l) return;
+      const dest = col.dataset.col; if(dest === l.estado) return;
+      const de = ESTADOS[IDX[l.estado]].n;
+      l.estado = dest;
+      if(dest === 'en_fab' && !l.entradaFabrica) l.entradaFabrica = iso(hoy());
+      if(IDX[dest] >= IDX.listo_env && !l.salidaFabrica) l.salidaFabrica = iso(hoy());
+      if(dest === 'terminado') l.subestado = '';
+      l.ultimoCambio = { quien:S.ui.usuario, fecha:iso(hoy()), texto:`movido a ${ESTADOS[IDX[dest]].n}` };
+      log('estado', `${l.nombre}: ${de} → ${ESTADOS[IDX[dest]].n}`, l.id);
+      guardar(); render();
+      if(dest === 'listo_fab' && gatesFaltan(l).length) toast('Movido, pero queda bloqueado: falta ' + gatesFaltan(l).map(g=>g.n.toLowerCase()).join(', '));
+    });
+  });
+}
+
+/* --- Exportar / importar --- */
+function exportarCSV(){
+  const cab = ['Obra','Constructora','Lote','Familia','Unidades','Importe','Columna','Detalle fábrica','Entrega en obra',
+    'Confirmación','Semáforo','Pedir material antes de','Pedido','Material en casa','Inicio máx. fábrica','Fin fabricación',
+    'Urgente','Transporte','Zona','Doc. acceso','Facturado','Bloqueos'];
+  const filas = S.lotes.map(l => { const o = obraDe(l.obraId), p = plan(l);
+    return [o?.nombre, o?.constructora, l.nombre, l.familia, l.unidades, l.importe, ESTADOS[IDX[l.estado]].n,
+      SUBFAB.find(s=>s.id===l.subestado)?.n||'', l.fechaObra, l.confirmacion, RTXT[riesgo(l)],
+      p.pedido, l.pedido.fechaPedido||'', p.material, p.inicioFab, p.finFab,
+      l.urgente?'sí':'no', l.transporte.fecha||'', l.transporte.zona||'', l.docAcceso, l.facturado?'sí':'no',
+      gatesFaltan(l).map(g=>g.n).join(' / ')];
+  });
+  const csv = [cab, ...filas].map(r => r.map(v => `"${String(v ?? '').replace(/"/g,'""')}"`).join(';')).join('\r\n');
+  bajar('﻿'+csv, 'flujo-obra-'+iso(hoy())+'.csv', 'text/csv;charset=utf-8', 'CSV listo — ábrelo en Excel');
+}
+function exportarJSON(){
+  bajar(JSON.stringify(S,null,2), 'flujo-obra-'+iso(hoy())+'.json', 'application/json',
+    'Copia de seguridad guardada — súbela a la carpeta del equipo');
+}
+function importarJSON(){
+  const i = document.createElement('input'); i.type = 'file'; i.accept = '.json';
+  i.onchange = () => { const f = i.files[0]; if(!f) return; const r = new FileReader();
+    r.onload = () => { try{ const d = JSON.parse(r.result); if(!d.obras) throw 0;
+        S = d; cargar(); guardar(); cerrar(); render(); toast('Copia restaurada'); }
+      catch(e){ toast('Ese archivo no es una copia válida'); } };
+    r.readAsText(f); };
+  i.click();
+}
+/* Descarga: dentro del visor de artefactos hay que pedirla al anfitrión;
+   como archivo local o en un servidor propio vale el enlace de siempre. */
+async function bajar(txt, nom, tipo, msg){
+  const dl = window.claude && window.claude.downloads;
+  if(dl){
+    try { await dl.save({ filename:nom, data:txt }); toast(msg); return; }
+    catch(err){
+      const c = err && err.code;
+      if(c === 'declined') return;                       // dijo que no: no insistir
+      if(c === 'rate_limited'){ toast('Espera un momento y vuelve a intentarlo'); return; }
+      if(c === 'extension_not_enabled' || c === 'rejected_extension'){
+        const ext = nom.split('.').pop();
+        try {
+          await dl.save({ filename:nom.replace(/\.[^.]+$/, '.txt'), data:txt });
+          toast(`Guardado como .txt — cámbiale la extensión a .${ext} para abrirlo`);
+        } catch(e2){ if(e2 && e2.code !== 'declined') toast('Aquí no se puede descargar; ábrelo desde el archivo original'); }
+        return;
+      }
+      toast('Aquí no se puede descargar; ábrelo desde el archivo original'); return;
+    }
+  }
+  const b = new Blob([txt], {type:tipo}), u = URL.createObjectURL(b);
+  const a = document.createElement('a'); a.href = u; a.download = nom; a.click();
+  setTimeout(() => URL.revokeObjectURL(u), 1500);
+  toast(msg);
+}
+
+/* ---------- 11. Fábrica de objetos ---------- */
+function nuevoLote(d){
+  return Object.assign({
+    id:uid('l'), obraId:'', nombre:'Bloque A', familia:'puertas', unidades:0, importe:0,
+    estado:'por_medir', fechaObra:'', confirmacion:'prevision', urgente:false, desplazaA:null,
+    gates:{medicion:false,despiece:false,material:false,fecha:false,capacidad:false,transporte:false},
+    subestado:'', responsableOficina:'María Jesús', enPreparacion:false,
+    pedido:{proveedor:'', fechaPedido:null, fechaLlegada:null, recibido:false},
+    transporte:{fecha:'', destino:'', zona:'', ocupacion:0, urgente:false},
+    docAcceso:'no', entradaFabrica:null, salidaFabrica:null, facturado:false,
+    notas:'', ejemplo:false, ultimoCambio:null
+  }, d);
+}
+function siguienteNombre(n){
+  const m = n.match(/^(.*?)([A-Z])$/);
+  if(m) return m[1] + String.fromCharCode(m[2].charCodeAt(0)+1);
+  const d = n.match(/^(.*?)(\d+)$/);
+  if(d) return d[1] + (+d[2]+1);
+  return n + ' (copia)';
+}
+function abrirMes(obraId, mes){
+  const m = mes || mesActual();
+  if(S.certs.some(c => c.obraId === obraId && c.mes === m)) return;
+  const o = obraDe(obraId);
+  S.certs.push({ id:uid('c'), obraId, mes:m, estado:'pend_info', importe:0,
+    contacto:o?.contactoCert||'', sinCert:false, notas:'', ejemplo:!!o?.ejemplo });
+}
+
+/* ---------- 12. El ejemplo: siempre disponible, con fechas vivas ---------- */
+function sembrarEjemplo(){
+  S.obras = S.obras.filter(o => !o.ejemplo);
+  S.lotes = S.lotes.filter(l => !l.ejemplo);
+  S.certs = S.certs.filter(c => !c.ejemplo);
+  const H = iso(hoy()), d = n => masDias(H, n);
+
+  const O = (n, c, u, z, cc, dl, fc) => {
+    const o = { id:uid('o'), nombre:n, constructora:c, ubicacion:u, zona:z, responsable:'Alejandro',
+      fechaContractual:d(fc), formaFacturacion:'Certificación mensual', contactoCert:cc, diaLimiteCert:dl,
+      requisitosDoc:'PRL, seguro y alta de trabajadores en plataforma de la constructora', activa:true, ejemplo:true };
+    S.obras.push(o); return o;
+  };
+  const L = (o, x) => { const l = nuevoLote(Object.assign({ obraId:o.id, ejemplo:true }, x)); S.lotes.push(l); return l; };
+  const G = (...ks) => { const g = {medicion:false,despiece:false,material:false,fecha:false,capacidad:false,transporte:false};
+    ks.forEach(k => g[k] = true); return g; };
+  const TODOS = G('medicion','despiece','material','fecha','capacidad','transporte');
+
+  /* — Obra 1: la grande, la que enseña por qué hacen falta dos niveles — */
+  const o1 = O('Residencial Los Olivos','Placonsa','Cáceres · 120 viviendas','Cáceres','Marta Gil (certificaciones)',25,-210);
+  L(o1,{nombre:'Bloque A', familia:'armarios', unidades:30, importe:18400, estado:'montaje',
+    fechaObra:d(-6), confirmacion:'confirmada', gates:TODOS, docAcceso:'aprobada',
+    entradaFabrica:d(-18), salidaFabrica:d(-8),
+    pedido:{proveedor:'Tableros Extremadura', fechaPedido:d(-62), fechaLlegada:d(-24), recibido:true},
+    transporte:{fecha:d(-6), destino:'Cáceres', zona:'Cáceres', ocupacion:85, urgente:false},
+    ultimoCambio:{quien:'Encargado de taller', fecha:d(-6), texto:'movido a En montaje'}});
+
+  L(o1,{nombre:'Bloque B', familia:'armarios', unidades:30, importe:18400, estado:'en_fab',
+    fechaObra:d(9), confirmacion:'confirmada', gates:TODOS, subestado:'', docAcceso:'solicitada',
+    entradaFabrica:d(-16),
+    pedido:{proveedor:'Tableros Extremadura', fechaPedido:d(-55), fechaLlegada:d(-20), recibido:true},
+    transporte:{fecha:d(9), destino:'Cáceres', zona:'Cáceres', ocupacion:70, urgente:false},
+    ultimoCambio:{quien:'Encargado de taller', fecha:d(-16), texto:'entrada en fábrica'}});
+
+  L(o1,{nombre:'Bloque C', familia:'puertas', unidades:30, importe:9200, estado:'oficina',
+    fechaObra:d(2), confirmacion:'confirmada', urgente:true,
+    gates:G('medicion','fecha'), responsableOficina:'María Jesús', enPreparacion:true,
+    pedido:{proveedor:'Puertas Norma', fechaPedido:null, fechaLlegada:null, recibido:false},
+    transporte:{fecha:d(4), destino:'Cáceres', zona:'Cáceres', ocupacion:45, urgente:true},
+    docAcceso:'no',
+    ultimoCambio:{quien:'Alejandro', fecha:d(-1), texto:'marcado como urgente'}});
+
+  L(o1,{nombre:'Bloque D', familia:'puertas', unidades:30, importe:9200, estado:'por_medir',
+    fechaObra:d(78), confirmacion:'prevision',
+    ultimoCambio:{quien:'Alejandro', fecha:d(-9), texto:'previsión del jefe de obra'}});
+
+  /* — Obra 2: bloqueo por definición de "listo" y pedido de material vencido — */
+  const o2 = O('Edificio Puerta de Trujillo','Grupo Sanjuán','Plasencia · 34 viviendas','Plasencia','Javier Ruano',28,-150);
+  L(o2,{nombre:'Fase 1 · viviendas', familia:'puertas', unidades:34, importe:11900, estado:'listo_fab',
+    fechaObra:d(12), confirmacion:'confirmada', gates:G('medicion','despiece','fecha','capacidad'),
+    pedido:{proveedor:'Puertas Norma', fechaPedido:d(-30), fechaLlegada:d(3), recibido:false},
+    transporte:{fecha:d(12), destino:'Plasencia', zona:'Plasencia', ocupacion:60, urgente:false},
+    docAcceso:'solicitada',
+    ultimoCambio:{quien:'María Jesús', fecha:d(-3), texto:'despiece cerrado'}});
+
+  L(o2,{nombre:'Fase 2 · armarios', familia:'armarios', unidades:34, importe:21000, estado:'material',
+    fechaObra:d(26), confirmacion:'confirmada', gates:G('medicion','despiece','fecha'),
+    pedido:{proveedor:'Tableros Extremadura', fechaPedido:null, fechaLlegada:null, recibido:false},
+    transporte:{fecha:d(26), destino:'Plasencia', zona:'Plasencia', ocupacion:0, urgente:false},
+    ultimoCambio:{quien:'Alejandro', fecha:d(-5), texto:'fecha confirmada por el jefe de obra'}});
+
+  /* — Obra 3: la urgencia que desplaza y el trabajo parado — */
+  const o3 = O('Hotel Rural Valle del Jerte','Obras Jerte SL','Navaconcejo','Jerte','Ana Sánchez',30,-95);
+  const l8 = L(o3,{nombre:'Habitaciones 1–14', familia:'puertas', unidades:14, importe:6300, estado:'en_fab',
+    fechaObra:d(16), confirmacion:'confirmada', gates:TODOS, subestado:'parado', entradaFabrica:d(-4),
+    pedido:{proveedor:'Puertas Norma', fechaPedido:d(-48), fechaLlegada:d(-10), recibido:true},
+    transporte:{fecha:d(16), destino:'Navaconcejo', zona:'Jerte', ocupacion:55, urgente:false},
+    docAcceso:'aprobada',
+    ultimoCambio:{quien:'Encargado de taller', fecha:d(-1), texto:'parado para meter la zona común'}});
+
+  L(o3,{nombre:'Zona común y recepción', familia:'puertas', unidades:22, importe:8600, estado:'listo_env',
+    fechaObra:d(2), confirmacion:'confirmada', urgente:true, desplazaA:l8.id, gates:TODOS,
+    entradaFabrica:d(-5), salidaFabrica:d(-1), docAcceso:'no',
+    pedido:{proveedor:'Puertas Norma', fechaPedido:d(-45), fechaLlegada:d(-12), recibido:true},
+    transporte:{fecha:d(1), destino:'Navaconcejo', zona:'Jerte', ocupacion:40, urgente:true},
+    ultimoCambio:{quien:'Alejandro', fecha:d(-2), texto:'urgencia pedida por el hotel'}});
+
+  /* — Obra 4: lo terminado que nadie ha facturado — */
+  const o4 = O('Promoción Mirasierra','Extreconsa','Cáceres · 48 viviendas','Cáceres','Luis Prieto',25,-260);
+  L(o4,{nombre:'Portal 1', familia:'armarios', unidades:24, importe:15000, estado:'terminado',
+    fechaObra:d(-42), confirmacion:'confirmada', gates:TODOS, docAcceso:'aprobada',
+    entradaFabrica:d(-58), salidaFabrica:d(-46), facturado:false,
+    pedido:{proveedor:'Tableros Extremadura', fechaPedido:d(-100), fechaLlegada:d(-62), recibido:true},
+    transporte:{fecha:d(-42), destino:'Cáceres', zona:'Cáceres', ocupacion:90, urgente:false},
+    ultimoCambio:{quien:'Encargado de taller', fecha:d(-40), texto:'repasos cerrados'}});
+
+  L(o4,{nombre:'Portal 2', familia:'puertas', unidades:24, importe:8800, estado:'repasos',
+    fechaObra:d(-12), confirmacion:'confirmada', gates:TODOS, docAcceso:'aprobada',
+    entradaFabrica:d(-24), salidaFabrica:d(-15), facturado:false,
+    pedido:{proveedor:'Puertas Norma', fechaPedido:d(-70), fechaLlegada:d(-30), recibido:true},
+    transporte:{fecha:d(-12), destino:'Cáceres', zona:'Cáceres', ocupacion:75, urgente:false},
+    ultimoCambio:{quien:'Encargado de taller', fecha:d(-10), texto:'repasos pendientes de dos viviendas'}});
+
+  L(o4,{nombre:'Portal 3', familia:'armarios', unidades:24, importe:15000, estado:'oficina',
+    fechaObra:d(49), confirmacion:'prevision', gates:G('medicion'),
+    responsableOficina:'Alejandro', enPreparacion:false,
+    pedido:{proveedor:'Tableros Extremadura', fechaPedido:null, fechaLlegada:null, recibido:false},
+    ultimoCambio:{quien:'Alejandro', fecha:d(-6), texto:'despiece de armarios iniciado'}});
+
+  L(o4,{nombre:'Portal 4', familia:'puertas', unidades:24, importe:8800, estado:'oficina',
+    fechaObra:d(58), confirmacion:'prevision', gates:G('medicion'),
+    responsableOficina:'María Jesús', enPreparacion:true,
+    pedido:{proveedor:'Puertas Norma', fechaPedido:null, fechaLlegada:null, recibido:false},
+    ultimoCambio:{quien:'María Jesús', fecha:d(-2), texto:'medición recibida'}});
+
+  L(o4,{nombre:'Garajes y trasteros', familia:'puertas', unidades:12, importe:4200, estado:'medido',
+    fechaObra:d(46), confirmacion:'prevision', gates:G('medicion'),
+    responsableOficina:'María Jesús',
+    ultimoCambio:{quien:'Alejandro', fecha:d(-4), texto:'medido en obra'}});
+
+  /* Certificaciones: el mes en curso y un mes cerrado */
+  const m = mesActual();
+  const prev = (() => { const x = hoy(); x.setDate(1); x.setMonth(x.getMonth()-1);
+    return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0'); })();
+  const C = (o, mes, estado, importe, sinCert) => S.certs.push({ id:uid('c'), obraId:o.id, mes, estado,
+    importe, contacto:o.contactoCert, sinCert:!!sinCert, notas:'', ejemplo:true });
+  C(o1, m, 'pend_info', 0);
+  C(o2, m, 'proforma', 18500);
+  C(o4, m, 'info_ok', 23000);
+  C(o1, prev, 'cobrada', 42000);
+  C(o4, prev, 'facturada', 19800);
+  C(o3, prev, 'pend_info', 0, true);
+
+  /* Historial: cuatro cambios de prioridad esta semana, que es justo lo que hay que medir */
+  const hist = [
+    ['prioridad','Bloque C adelantado por petición del jefe de obra','Alejandro',1],
+    ['estado','Habitaciones 1–14: En fabricación → parado','Encargado de taller',1],
+    ['prioridad','Zona común del hotel pasa por delante de las habitaciones','Alejandro',2],
+    ['prioridad','Fase 1 de Trujillo se retrasa una semana','Alejandro',4],
+    ['prioridad','Portal 3 entra en despiece antes que Portal 4','Alejandro',6],
+    ['fecha','Bloque B: fecha de obra confirmada por Placonsa','Alejandro',8],
+    ['prioridad','Camión de Cáceres reprogramado para meter Trujillo','Alejandro',10],
+    ['cert',`Certificación de ${fMes(prev)} cobrada — Los Olivos`,'Administración',11],
+    ['prioridad','Garajes y trasteros pasan por delante del Portal 4','Alejandro',13],
+    ['prioridad','Bloque B adelantado sobre el Bloque C','Alejandro',16],
+    ['prioridad','Se parte el pedido de tablero en dos entregas','Alejandro',21],
+    ['prioridad','Hotel del Jerte entra fuera de programación','Alejandro',23],
+    ['prioridad','Portal 2 se adelanta dos semanas','Alejandro',30],
+    ['prioridad','Cambio de acabado en el Bloque A a mitad de corte','Alejandro',37],
+    ['prioridad','Transporte a Sevilla desplazado por Córdoba','Alejandro',44]
+  ];
+  hist.forEach(([tipo,texto,quien,ago]) => {
+    const t = new Date(); t.setDate(t.getDate()-ago); t.setHours(9+(ago%7),15,0,0);
+    S.historial.push({ ts:t.toISOString(), tipo, texto, quien, loteId:null });
+  });
+  S.historial.sort((a,b) => b.ts.localeCompare(a.ts));
+}
+
+/* ---------- Arranque ---------- */
+cargar(); ghCargarCfg(); guardarLocal(); render();
+if(ghActivo()) ghTraer(true);          // al abrir, lo que valga es lo del repositorio
+window.addEventListener('beforeunload', e => {
+  if(SY.timer){ e.preventDefault(); e.returnValue = ''; }   // hay cambios sin subir
+});
+</script>
+</body>
+</html>
