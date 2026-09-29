@@ -1,0 +1,554 @@
+<title>Playbook Copilot Marketing Finanzas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: portada navy con patrón de puntos NCompany, cuerpo crema con banda lateral naranja; secciones A–G como en las propuestas NCompany */
+:root{
+  --navy:#0F1B2D; --navy-soft:#1B2541;
+  --ground:#F2EEE7; --surface:#FFFFFF; --surface-2:#F8F5F0;
+  --ink:#0F1B2D; --ink-2:#3C4658; --ink-3:#5C6675;
+  --line:#E0D9CD; --line-strong:#C9BFAE;
+  --orange:#F39C12; --orange-deep:#B86A08; --orange-soft:#FCEFD9;
+  --blue:#5A75D8; --blue-soft:#E6EAF9;
+  --burgundy:#C9425A; --burgundy-soft:#F8E3E7;
+  --on-dark:#FFFFFF; --on-dark-2:#B8C0CE;
+  --code-bg:#0F1B2D; --code-ink:#E9EDF4;
+  --display:'Manrope',Avenir,'Segoe UI',system-ui,sans-serif;
+  --body:'Manrope',Avenir,'Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1522; --surface:#15213A; --surface-2:#1A2743;
+    --ink:#EDF0F5; --ink-2:#C3CAD6; --ink-3:#95A0B2;
+    --line:#26344F; --line-strong:#384A6B;
+    --orange:#F5A52B; --orange-deep:#F5B04A; --orange-soft:#2E2412;
+    --blue:#8EA3EC; --blue-soft:#1C2748;
+    --burgundy:#E57A8E; --burgundy-soft:#321A22;
+    --code-bg:#08101C; --code-ink:#E9EDF4;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1522; --surface:#15213A; --surface-2:#1A2743;
+  --ink:#EDF0F5; --ink-2:#C3CAD6; --ink-3:#95A0B2;
+  --line:#26344F; --line-strong:#384A6B;
+  --orange:#F5A52B; --orange-deep:#F5B04A; --orange-soft:#2E2412;
+  --blue:#8EA3EC; --blue-soft:#1C2748;
+  --burgundy:#E57A8E; --burgundy-soft:#321A22;
+  --code-bg:#08101C; --code-ink:#E9EDF4;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.label{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--orange-deep)}
+.muted{color:var(--ink-3)}
+
+/* ---------- Portada ---------- */
+.cover{background:var(--navy);color:var(--on-dark);position:relative;overflow:hidden}
+.cover .wrap{padding-block:clamp(40px,7vw,80px) 0;position:relative;z-index:1}
+.cover-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.01em}
+.logo span{color:#F39C12}
+.cover .label{color:#F39C12}
+.cover-title{margin-top:clamp(36px,6vw,64px);border-left:6px solid #F39C12;padding-left:clamp(16px,3vw,28px);max-width:760px}
+.cover-title h1{font-size:clamp(40px,7.5vw,88px);font-weight:800;letter-spacing:-.03em;line-height:.98}
+.cover-title p{margin-top:18px;font-size:clamp(17px,2.2vw,22px);color:var(--on-dark-2);max-width:620px}
+.cover-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;margin-top:clamp(36px,6vw,56px);background:rgba(255,255,255,.12);border-top:1px solid rgba(255,255,255,.12)}
+.cover-meta div{background:var(--navy);padding:16px 18px 20px 0}
+.cover-meta dt{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-2)}
+.cover-meta dd{margin:4px 0 0;font-weight:700;font-size:17px}
+.dots{position:absolute;right:clamp(-40px,2vw,40px);top:40px;display:grid;grid-template-columns:repeat(6,6px);gap:44px 44px;opacity:.9}
+.dots i{width:6px;height:6px;border-radius:50%;background:#F39C12;display:block}
+.cover-band{height:14px;width:32%;background:#F39C12;margin-top:40px}
+@media (max-width:700px){.dots{opacity:.25}}
+
+/* ---------- Navegación ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:8px}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--ink-2);font-size:13px;font-weight:600;padding:8px 12px;border-radius:4px}
+.nav a:hover{background:var(--surface-2);color:var(--ink)}
+.nav a b{color:var(--orange-deep);margin-right:6px}
+
+/* ---------- Secciones ---------- */
+main{border-left:8px solid var(--orange)}
+section{padding-block:clamp(48px,7vw,84px);border-bottom:1px solid var(--line)}
+.sec-head{display:grid;gap:12px;max-width:760px;margin-bottom:clamp(28px,4vw,44px)}
+.sec-head h2{font-size:clamp(28px,4.2vw,44px);font-weight:800;letter-spacing:-.02em}
+.sec-head p{color:var(--ink-2);font-size:18px;max-width:65ch}
+.kw{color:var(--orange-deep)}
+
+/* Reto */
+.paradox{background:var(--navy);color:var(--on-dark);padding:clamp(22px,4vw,36px);border-radius:4px;display:grid;gap:10px;margin-bottom:28px}
+.paradox .label{color:#F39C12}
+.paradox p{font-size:clamp(20px,2.8vw,28px);font-weight:700;line-height:1.3;max-width:34ch}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--orange);padding:20px 20px 22px;border-radius:2px;display:grid;gap:8px;align-content:start;min-width:0}
+.card.blue{border-left-color:var(--blue)}
+.card.burg{border-left-color:var(--burgundy)}
+.card h3{font-size:18px;font-weight:700}
+.card p{color:var(--ink-2);font-size:15px}
+.card .tag{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:28px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--orange);padding:18px 20px}
+.kpi b{display:block;font-size:clamp(34px,4.5vw,48px);font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--ink-3);font-size:14px}
+
+/* Agenda */
+.agenda{display:grid;gap:0;border-top:1px solid var(--line-strong)}
+.slot{display:grid;grid-template-columns:130px 1fr auto;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+.slot time{font-family:var(--mono);font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:2px}
+.slot h3{font-size:18px;font-weight:700}
+.slot p{color:var(--ink-2);font-size:15px;margin-top:4px;max-width:65ch}
+.slot .out{font-size:13px;color:var(--ink-3);margin-top:6px}
+.slot .out b{color:var(--ink-2)}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:4px;white-space:nowrap}
+.p-teoria{background:var(--blue-soft);color:var(--blue)}
+.p-practica{background:var(--orange-soft);color:var(--orange-deep)}
+.p-pausa{background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line)}
+.slot.break{opacity:.8}
+.timeline{display:flex;height:12px;margin-bottom:22px;border-radius:2px;overflow:hidden;gap:2px}
+.timeline span{display:block;height:100%}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-3);margin-bottom:26px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+@media (max-width:640px){.slot{grid-template-columns:1fr;gap:6px}}
+
+/* Marco 5 */
+.marco{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line-strong);background:var(--surface)}
+.m{padding:22px 18px 24px;border-right:1px solid var(--line);display:grid;gap:8px;align-content:start;min-width:0}
+.m:last-child{border-right:0}
+.m .n{font-family:var(--mono);font-size:13px;color:var(--orange-deep)}
+.m h3{font-size:22px;font-weight:800;letter-spacing:-.01em}
+.m .q{font-weight:600;font-size:15px}
+.m p{font-size:14px;color:var(--ink-2)}
+.m .fin{font-size:13px;color:var(--ink-3);border-top:1px dashed var(--line-strong);padding-top:8px;margin-top:4px}
+@media (max-width:900px){.marco{grid-template-columns:1fr 1fr}.m{border-bottom:1px solid var(--line)}}
+@media (max-width:520px){.marco{grid-template-columns:1fr}.m{border-right:0}}
+
+.formula{margin-top:22px;font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--line);padding:14px 18px;overflow-x:auto;white-space:nowrap}
+.formula b{color:var(--orange-deep);font-weight:500}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+@media (max-width:760px){.compare{grid-template-columns:1fr}}
+.prompt{background:var(--code-bg);color:var(--code-ink);border-radius:4px;padding:18px 20px;font-family:var(--mono);font-size:13.5px;line-height:1.65;white-space:pre-wrap;word-break:break-word;min-width:0}
+.prompt .k{color:#F5B04A}
+.cmp-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px}
+.cmp-h strong{font-size:14px}
+
+/* Casos */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+:root[data-theme="dark"] .filters button[aria-pressed="true"]{background:var(--orange);color:#0F1B2D;border-color:var(--orange)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .filters button[aria-pressed="true"]{background:var(--orange);color:#0F1B2D;border-color:var(--orange)}}
+.cases{display:grid;gap:14px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:2px}
+.case summary{list-style:none;cursor:pointer;padding:18px 20px;display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center}
+.case summary::-webkit-details-marker{display:none}
+.case .num{font-family:var(--mono);font-size:14px;color:var(--orange-deep)}
+.case h3{font-size:17px;font-weight:700}
+.case .sub{font-size:14px;color:var(--ink-3);margin-top:2px}
+.apps{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.app{font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;background:var(--blue-soft);color:var(--blue);white-space:nowrap}
+.case[open] summary{border-bottom:1px solid var(--line)}
+.case-body{padding:20px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px}
+@media (max-width:820px){.case-body{grid-template-columns:1fr}.case summary{grid-template-columns:34px 1fr}.apps{grid-column:2;justify-content:flex-start}}
+.side h4{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;font-weight:700}
+.side{display:grid;gap:16px;align-content:start}
+.side p,.side li{font-size:14px;color:var(--ink-2)}
+.side ul{margin:0;padding-left:18px}
+.hil{border-left:3px solid var(--blue);padding-left:12px}
+.copy{font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);cursor:pointer}
+.copy:hover{border-color:var(--orange);color:var(--ink)}
+
+/* Guardarraíles */
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:640px}
+.tbl{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+th{background:var(--navy-soft);color:#fff;text-align:left;font-weight:600;padding:12px 14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+td{padding:14px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+td:first-child{color:var(--ink);font-weight:700}
+.lvl{font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 8px;border-radius:4px;color:#fff;display:inline-block}
+.alto{background:#C9425A}.medio{background:#5A75D8}.bajo{background:#B86A08}
+
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px}
+.rule{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+.chk{width:24px;height:24px;border-radius:50%;background:var(--orange);display:grid;place-items:center;margin-top:2px}
+.chk svg{width:12px;height:12px}
+.rule h3{font-size:16px;font-weight:700}
+.rule p{font-size:14px;color:var(--ink-2)}
+.rule.no .chk{background:var(--burgundy)}
+
+/* Plan */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.phase{background:var(--surface);border:1px solid var(--line);padding:22px 20px;display:grid;gap:10px;align-content:start}
+.phase .when{font-family:var(--mono);font-size:13px;color:var(--orange-deep)}
+.phase h3{font-size:19px;font-weight:800}
+.phase ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink-2);display:grid;gap:4px}
+
+.checklist{display:grid;gap:8px;margin-top:8px}
+.checklist label{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:15px;color:var(--ink-2);cursor:pointer;padding:10px 12px;background:var(--surface);border:1px solid var(--line)}
+.checklist input{width:18px;height:18px;accent-color:var(--orange);margin-top:3px}
+.checklist input:checked + span{text-decoration:line-through;color:var(--ink-3)}
+.prep{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+@media (max-width:800px){.prep{grid-template-columns:1fr}}
+.prep h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.progress{font-size:13px;color:var(--ink-3);margin-top:10px;font-variant-numeric:tabular-nums}
+
+/* Cierre */
+.close{background:var(--navy);color:var(--on-dark);border-left:8px solid #F39C12}
+.close .wrap{padding-block:clamp(56px,8vw,96px)}
+.close-box{background:var(--navy-soft);border-left:4px solid #F39C12;padding:clamp(22px,4vw,40px);max-width:820px}
+.close-box .label{color:#F39C12}
+.close-box p.big{font-size:clamp(24px,3.6vw,38px);font-weight:800;line-height:1.2;margin-top:12px;letter-spacing:-.01em}
+.close-box p.small{color:var(--on-dark-2);margin-top:14px;font-size:17px}
+.contact{margin-top:34px;display:grid;gap:4px;font-size:15px;color:var(--on-dark-2)}
+.contact b{color:#fff}
+.foot{margin-top:40px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--on-dark-2)}
+</style>
+
+<header class="cover">
+  <div class="dots" aria-hidden="true" id="dots"></div>
+  <div class="wrap">
+    <div class="cover-top">
+      <div class="logo">N<span>.</span>Company</div>
+      <div class="label">Playbook · Taller in-company</div>
+    </div>
+    <div class="cover-title">
+      <h1>Copilot para Marketing en finanzas</h1>
+      <p>Cuatro horas para que el equipo de Marketing produzca, analice y mida con Microsoft 365 Copilot, dentro de las reglas de un sector regulado.</p>
+    </div>
+    <dl class="cover-meta">
+      <div><dt>Formato</dt><dd>Taller presencial</dd></div>
+      <div><dt>Duración</dt><dd>4 horas</dd></div>
+      <div><dt>Método</dt><dd>Marco 5</dd></div>
+      <div><dt>Herramienta</dt><dd>Microsoft 365 Copilot</dd></div>
+      <div><dt>Fecha</dt><dd>Septiembre 2026</dd></div>
+    </dl>
+  </div>
+  <div class="cover-band"></div>
+</header>
+
+<nav class="nav" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#reto"><b>A</b>Reto</a>
+    <a href="#agenda"><b>B</b>Agenda 4 h</a>
+    <a href="#marco"><b>C</b>Marco 5</a>
+    <a href="#casos"><b>D</b>Casos y prompts</a>
+    <a href="#guardarrailes"><b>E</b>Guardarraíles</a>
+    <a href="#plan"><b>F</b>Plan 30 días</a>
+    <a href="#preparacion"><b>G</b>Preparación</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- A · RETO -->
+<section id="reto">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">A · Entendimiento del reto</span>
+      <h2>Marketing financiero va lento por la revisión, no por la creatividad</h2>
+      <p>En banca, seguros y gestión de activos, cada pieza pasa por Producto, Cumplimiento y Legal. Copilot no elimina esa revisión. Sirve para llegar a ella con piezas que ya cumplen y con menos vueltas.</p>
+    </div>
+
+    <div class="paradox">
+      <span class="label">La paradoja</span>
+      <p>El equipo tiene Copilot en todas sus aplicaciones y lo usa como un buscador con mejor redacción.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="card"><span class="tag">Fricción 1</span><h3>Briefs incompletos</h3><p>Faltan TAE, perfil de riesgo o público destinatario. La pieza vuelve de Cumplimiento dos o tres veces.</p></div>
+      <div class="card"><span class="tag">Fricción 2</span><h3>Datos dispersos</h3><p>Resultados de campaña en Excel, feedback de oficinas en Teams, estudios en SharePoint. Nadie cruza las tres fuentes.</p></div>
+      <div class="card"><span class="tag">Fricción 3</span><h3>Una idea, veinte formatos</h3><p>Cada canal (web, app, email, RRSS, oficina) exige su versión, con sus mandatorios y sus límites de caracteres.</p></div>
+      <div class="card"><span class="tag">Fricción 4</span><h3>Reporting manual</h3><p>El informe mensual consume una mañana de copiar tablas. Las conclusiones llegan tarde para el siguiente comité.</p></div>
+    </div>
+
+    <div class="kpis" aria-label="Objetivos del taller">
+      <div class="kpi"><b>10</b><span>casos de uso resueltos en sala con documentos del equipo</span></div>
+      <div class="kpi"><b>1</b><span>biblioteca de prompts compartida al terminar la sesión</span></div>
+      <div class="kpi"><b>3</b><span>pilotos elegidos para medir durante 30 días</span></div>
+      <div class="kpi"><b>0</b><span>datos personales de clientes dentro de los ejercicios</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- B · AGENDA -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">B · Agenda del taller</span>
+      <h2>240 minutos, 70 % con las manos en Copilot</h2>
+      <p>Cada bloque termina con un entregable real del equipo. Nadie sale con ejercicios de muestra; sale con piezas y prompts que puede usar el lunes.</p>
+    </div>
+
+    <div class="timeline" aria-hidden="true">
+      <span style="flex:20;background:var(--blue)"></span>
+      <span style="flex:30;background:var(--blue)"></span>
+      <span style="flex:55;background:var(--orange)"></span>
+      <span style="flex:15;background:var(--line-strong)"></span>
+      <span style="flex:60;background:var(--orange)"></span>
+      <span style="flex:40;background:var(--orange)"></span>
+      <span style="flex:20;background:var(--blue)"></span>
+    </div>
+    <div class="legend"><span><i style="background:var(--blue)"></i>Encuadre y método · 70 min</span><span><i style="background:var(--orange)"></i>Práctica guiada · 155 min</span><span><i style="background:var(--line-strong)"></i>Pausa · 15 min</span></div>
+
+    <div class="agenda">
+      <div class="slot"><time>0:00 – 0:20</time><div><h3>Apertura: de dónde partimos</h3><p>Encuesta rápida de uso actual de Copilot. Mapa de las cuatro fricciones con ejemplos que traiga el propio equipo. Reglas de la sala: nada de datos de clientes.</p><p class="out"><b>Entregable:</b> mapa de tareas del equipo ordenado por horas/semana.</p></div><span class="pill p-teoria">Encuadre</span></div>
+      <div class="slot"><time>0:20 – 0:50</time><div><h3>Marco 5: cómo se le pide trabajo a Copilot</h3><p>Rol, Objetivo, Contexto, Fuentes y Formato. Demostración en vivo del mismo encargo con prompt pobre y con Marco 5. Uso de «/» para citar archivos del tenant.</p><p class="out"><b>Entregable:</b> cada participante reescribe con Marco 5 un prompt que ya usa.</p></div><span class="pill p-teoria">Método</span></div>
+      <div class="slot"><time>0:50 – 1:45</time><div><h3>Bloque 1 · Inteligencia de cliente y mercado</h3><p>Casos 1 a 3: benchmark de competencia con el agente Researcher, síntesis de voz del cliente desde encuestas y reclamaciones anonimizadas, y buyer personas por segmento financiero.</p><p class="out"><b>Entregable:</b> una página de insights por producto, en Copilot Pages.</p></div><span class="pill p-practica">Práctica</span></div>
+      <div class="slot break"><time>1:45 – 2:00</time><div><h3>Pausa</h3></div><span class="pill p-pausa">Pausa</span></div>
+      <div class="slot"><time>2:00 – 3:00</time><div><h3>Bloque 2 · Contenido y campañas que pasan Cumplimiento</h3><p>Casos 4 a 7: brief creativo completo en Word, adaptación multicanal con mandatorios, pre-revisión normativa antes de enviar a Cumplimiento y deck de lanzamiento en PowerPoint.</p><p class="out"><b>Entregable:</b> kit de una campaña real (brief, 6 piezas, checklist normativo).</p></div><span class="pill p-practica">Práctica</span></div>
+      <div class="slot"><time>3:00 – 3:40</time><div><h3>Bloque 3 · Medición y reporting</h3><p>Casos 8 a 10: análisis de resultados con Copilot en Excel y el agente Analyst, resumen de reuniones de campaña en Teams y email de seguimiento en Outlook.</p><p class="out"><b>Entregable:</b> borrador del reporting mensual con tres conclusiones y tres decisiones.</p></div><span class="pill p-practica">Práctica</span></div>
+      <div class="slot"><time>3:40 – 4:00</time><div><h3>Cierre: pilotos y compromisos</h3><p>Votación de tres pilotos, responsables y métrica de cada uno. Se publica la biblioteca de prompts en el canal de Teams del equipo.</p><p class="out"><b>Entregable:</b> plan de 30 días firmado por el equipo.</p></div><span class="pill p-teoria">Plan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- C · MARCO 5 -->
+<section id="marco">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">C · Método</span>
+      <h2>Marco 5: cinco piezas en cada encargo a Copilot</h2>
+      <p>Copilot trabaja con lo que le das. Si falta una de estas cinco piezas, la rellena por su cuenta y ahí aparecen los errores. En finanzas, el Contexto incluye siempre la normativa y el perfil del cliente.</p>
+    </div>
+
+    <div class="marco">
+      <div class="m"><span class="n">1</span><h3>Rol</h3><p class="q">¿Quién responde?</p><p>El experto que haría el trabajo: redactor de banca minorista, analista de campañas, revisor normativo.</p><p class="fin">En finanzas: fija el tono. «Redactor de producto de ahorro, no de consumo».</p></div>
+      <div class="m"><span class="n">2</span><h3>Objetivo</h3><p class="q">¿Qué tiene que salir?</p><p>La tarea con verbo concreto y el criterio de éxito: qué hará el lector después de leerlo.</p><p class="fin">En finanzas: separa informar de comercializar. Cambia qué normativa aplica.</p></div>
+      <div class="m"><span class="n">3</span><h3>Contexto</h3><p class="q">¿Qué debe saber?</p><p>Producto, segmento, canal, momento de campaña y restricciones de marca.</p><p class="fin">En finanzas: TAE/TIN, perfil de riesgo, público minorista o profesional.</p></div>
+      <div class="m"><span class="n">4</span><h3>Fuentes</h3><p class="q">¿De dónde saca los datos?</p><p>Archivos citados con «/», correos, reuniones o web. Y lo que no debe usar.</p><p class="fin">En finanzas: solo ficha de producto aprobada. Nunca cifras inventadas.</p></div>
+      <div class="m"><span class="n">5</span><h3>Formato</h3><p class="q">¿Cómo lo entrega?</p><p>Estructura, extensión, número de variantes, tabla o texto, idioma y registro.</p><p class="fin">En finanzas: mandatorios en su lugar y marcados para revisión.</p></div>
+    </div>
+
+    <div class="formula" aria-label="Plantilla Marco 5">
+      <b>Actúa como</b> [rol] · <b>Necesito</b> [objetivo + criterio de éxito] · <b>Contexto:</b> [producto, segmento, canal, normativa] · <b>Usa solo</b> [/archivo, /correo, /reunión] · <b>Entrégalo como</b> [formato, extensión, variantes]
+    </div>
+
+    <div class="compare">
+      <div>
+        <div class="cmp-h"><strong>Antes</strong><span class="pill p-pausa">Prompt pobre</span></div>
+        <div class="prompt">Escríbeme un post para Instagram sobre nuestro nuevo depósito.</div>
+      </div>
+      <div>
+        <div class="cmp-h"><strong>Con Marco 5</strong><button class="copy" type="button" data-copy="m5demo">Copiar</button></div>
+        <div class="prompt" id="m5demo"><span class="k">Actúa como</span> redactor de producto de ahorro para banca minorista en España.
+<span class="k">Necesito</span> 3 copys para Instagram que lleven a la landing del depósito. Éxito: que se entienda la rentabilidad en una línea.
+<span class="k">Contexto:</span> depósito a 12 meses, público 35-55 años con ahorro en cuenta corriente, tono cercano sin promesas. Aplica la Circular 4/2020 del Banco de España: la TAE debe aparecer con el mismo realce que cualquier otra cifra.
+<span class="k">Usa solo</span> /Ficha_Deposito_12M_aprobada.docx. No inventes cifras ni condiciones.
+<span class="k">Entrégalo como</span> tabla: copy (máx. 125 caracteres), texto legal, hashtag. Marca en negrita cada dato que Cumplimiento deba validar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- D · CASOS -->
+<section id="casos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">D · Casos de uso</span>
+      <h2>Diez casos, un prompt listo para cada uno</h2>
+      <p>Cada caso indica la aplicación de Copilot, el prompt con Marco 5 y el punto donde una persona valida. Los nombres de archivo entre corchetes se sustituyen por los del equipo.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrar por bloque">
+      <button type="button" data-f="all" aria-pressed="true">Todos</button>
+      <button type="button" data-f="1" aria-pressed="false">Bloque 1 · Cliente y mercado</button>
+      <button type="button" data-f="2" aria-pressed="false">Bloque 2 · Contenido</button>
+      <button type="button" data-f="3" aria-pressed="false">Bloque 3 · Medición</button>
+    </div>
+    <div class="cases" id="cases"></div>
+  </div>
+</section>
+
+<!-- E · GUARDARRAÍLES -->
+<section id="guardarrailes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">E · Guardarraíles y gobernanza</span>
+      <h2>Copilot redacta, el equipo responde</h2>
+      <p>Microsoft 365 Copilot respeta los permisos y etiquetas de sensibilidad del tenant. Eso protege el acceso a los datos, pero no revisa el contenido. La responsabilidad sobre cada pieza publicada sigue en Marketing y Cumplimiento.</p>
+    </div>
+
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Riesgo</th><th>Impacto</th><th>Qué puede pasar</th><th>Mitigación en el equipo</th></tr></thead>
+        <tbody>
+          <tr><td>Cifras inventadas</td><td><span class="lvl alto">Alto</span></td><td>Copilot completa una TAE, una comisión o una rentabilidad pasada que no está en la ficha.</td><td>Fuente única citada con «/». Todo dato numérico en negrita y contrastado con la ficha aprobada.</td></tr>
+          <tr><td>Mandatorios incompletos</td><td><span class="lvl alto">Alto</span></td><td>Faltan advertencias de riesgo, indicador de riesgo o TAE con el realce exigido.</td><td>Checklist normativo (caso 6) antes de enviar a Cumplimiento. Circular 4/2020 BdE y Circular 2/2020 CNMV.</td></tr>
+          <tr><td>Datos personales</td><td><span class="lvl alto">Alto</span></td><td>Se pegan reclamaciones o encuestas con nombre, DNI o IBAN en el chat.</td><td>Solo datos anonimizados o agregados. Trabajar siempre en el Copilot corporativo, nunca en herramientas personales.</td></tr>
+          <tr><td>Promesas implícitas</td><td><span class="lvl medio">Medio</span></td><td>El copy sugiere rentabilidad garantizada o ausencia de riesgo.</td><td>Lista de expresiones prohibidas en el prompt: «seguro», «sin riesgo», «garantizado» salvo producto que lo sea.</td></tr>
+          <tr><td>Uso de marca de terceros</td><td><span class="lvl medio">Medio</span></td><td>El benchmark cita competidores en piezas externas.</td><td>El benchmark es interno. La publicidad comparativa pasa por Legal.</td></tr>
+          <tr><td>Transparencia IA</td><td><span class="lvl bajo">Bajo</span></td><td>Imágenes o voces sintéticas sin identificar.</td><td>Política interna de etiquetado alineada con el AI Act (art. 50) para contenido generado.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rules">
+      <div class="rule"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l2.5 2.5L10 3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Sí: citar archivos aprobados</h3><p>Ficha de producto, manual de marca y guía de tono como fuentes. Copilot se ciñe a ellas.</p></div></div>
+      <div class="rule"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l2.5 2.5L10 3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Sí: pedir que marque dudas</h3><p>«Si falta un dato, escribe [PENDIENTE] en vez de suponerlo». Reduce las vueltas con Producto.</p></div></div>
+      <div class="rule"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l2.5 2.5L10 3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Sí: guardar lo que funciona</h3><p>Los prompts que pasan Cumplimiento a la primera van a la biblioteca compartida del equipo.</p></div></div>
+      <div class="rule no"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span><div><h3>No: publicar sin revisión</h3><p>Ninguna pieza con condiciones económicas sale sin la validación de Cumplimiento.</p></div></div>
+      <div class="rule no"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span><div><h3>No: recomendar productos</h3><p>Copilot no personaliza recomendaciones de inversión. Eso es asesoramiento y tiene su propio régimen MiFID II.</p></div></div>
+      <div class="rule no"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span><div><h3>No: rentabilidades pasadas sin aviso</h3><p>Si aparecen, siempre con la advertencia de que no garantizan resultados futuros.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- F · PLAN -->
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">F · Después del taller</span>
+      <h2>Plan de 30 días: tres pilotos y una métrica cada uno</h2>
+      <p>El taller cierra con tres casos elegidos por votación. Cada uno tiene responsable y se mide contra la línea base que el equipo registra en la primera semana.</p>
+    </div>
+    <div class="phases">
+      <div class="phase"><span class="when">Semana 1</span><h3>Línea base</h3><ul><li>Medir tiempo actual de los 3 casos piloto</li><li>Publicar biblioteca de prompts en Teams</li><li>Nombrar un referente Copilot por célula</li></ul></div>
+      <div class="phase"><span class="when">Semanas 2–3</span><h3>Uso diario</h3><ul><li>Todas las piezas piloto con Marco 5</li><li>Registro de vueltas con Cumplimiento</li><li>15 min semanales para compartir prompts</li></ul></div>
+      <div class="phase"><span class="when">Semana 4</span><h3>Revisión y escala</h3><ul><li>Comparar con la línea base</li><li>Decidir qué casos se extienden al equipo</li><li>Actualizar prompts con lo aprendido</li></ul></div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><b>–40 %</b><span>objetivo de tiempo de brief a pieza lista para revisión</span></div>
+      <div class="kpi"><b>+30 pp</b><span>objetivo de piezas aprobadas por Cumplimiento a la primera</span></div>
+      <div class="kpi"><b>–50 %</b><span>objetivo de tiempo de preparación del reporting mensual</span></div>
+      <div class="kpi"><b>80 %</b><span>objetivo de participantes usando Copilot 3+ días por semana</span></div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13px">Objetivos orientativos para el piloto. Se ajustan con la línea base real de la semana 1.</p>
+  </div>
+</section>
+
+<!-- G · PREPARACIÓN -->
+<section id="preparacion">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">G · Preparación</span>
+      <h2>Lo que tiene que estar listo antes de entrar en sala</h2>
+      <p>Las casillas se guardan en este navegador para que el equipo organizador vaya marcando.</p>
+    </div>
+    <div class="prep">
+      <div>
+        <h3>Organización</h3>
+        <div class="checklist" data-group="org">
+          <label><input type="checkbox" id="c-org-1"><span>Licencias de Microsoft 365 Copilot activas para todos los asistentes</span></label>
+          <label><input type="checkbox" id="c-org-2"><span>Acceso confirmado a Researcher y Analyst en Copilot Chat</span></label>
+          <label><input type="checkbox" id="c-org-3"><span>Carpeta de SharePoint del taller con fichas de producto aprobadas</span></label>
+          <label><input type="checkbox" id="c-org-4"><span>Dataset anonimizado de resultados de campaña (Excel, últimos 6 meses)</span></label>
+          <label><input type="checkbox" id="c-org-5"><span>Validación previa de Cumplimiento sobre el uso de documentos en sala</span></label>
+          <label><input type="checkbox" id="c-org-6"><span>Canal de Teams «Copilot Marketing» creado para la biblioteca</span></label>
+        </div>
+      </div>
+      <div>
+        <h3>Participantes</h3>
+        <div class="checklist" data-group="par">
+          <label><input type="checkbox" id="c-par-1"><span>Traer una tarea que repiten cada semana y cuánto tiempo les lleva</span></label>
+          <label><input type="checkbox" id="c-par-2"><span>Traer un brief o pieza reciente que volvió de Cumplimiento</span></label>
+          <label><input type="checkbox" id="c-par-3"><span>Portátil con sesión corporativa iniciada en Word, Excel, PowerPoint y Teams</span></label>
+          <label><input type="checkbox" id="c-par-4"><span>Guía de tono y manual de marca a mano</span></label>
+        </div>
+        <p class="progress" id="progress"></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="close">
+  <div class="wrap">
+    <div class="close-box">
+      <span class="label">Cierre</span>
+      <p class="big">En marketing financiero, la velocidad solo cuenta si la pieza llega aprobada.</p>
+      <p class="small">Copilot quita horas de trabajo mecánico. El criterio sobre producto, cliente y norma sigue siendo del equipo.</p>
+    </div>
+    <div class="contact">
+      <span><b>Consuelo Verdú</b> · Partner · NCompany</span>
+    </div>
+    <p class="foot">Playbook Copilot · Marketing Finanzas · NCompany · Septiembre 2026</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Patrón de puntos de portada
+  var d=document.getElementById('dots'); if(d){var h='';for(var i=0;i<66;i++)h+='<i></i>';d.innerHTML=h;}
+
+  var CASES=[
+    {b:1,t:'Benchmark de competencia',s:'Qué comunican los competidores en un producto concreto',apps:['Copilot Chat','Researcher'],
+     p:'<span class="k">Actúa como</span> analista de inteligencia competitiva en banca minorista española.\n<span class="k">Necesito</span> un benchmark de cómo comunican 5 entidades su [hipoteca fija / depósito / fondo indexado]. Éxito: detectar un hueco de mensaje que nadie ocupa.\n<span class="k">Contexto:</span> campaña de [trimestre], segmento [jóvenes compradores / ahorradores 50+].\n<span class="k">Usa</span> sus webs públicas y notas de prensa de los últimos 6 meses. Cita la URL de cada dato.\n<span class="k">Entrégalo como</span> tabla: entidad, mensaje principal, condiciones visibles, tono, canal. Cierra con 3 huecos de posicionamiento.',
+     hil:'Verificar cada condición en la web original antes de usarla internamente.',out:'Tabla comparativa + 3 oportunidades de mensaje.'},
+    {b:1,t:'Voz del cliente',s:'Síntesis de encuestas NPS y reclamaciones anonimizadas',apps:['Copilot Chat','Excel'],
+     p:'<span class="k">Actúa como</span> analista de experiencia de cliente en una entidad financiera.\n<span class="k">Necesito</span> los 5 motivos principales de insatisfacción con [producto], con peso relativo de cada uno.\n<span class="k">Contexto:</span> los comentarios son de clientes minoristas del último trimestre, ya anonimizados.\n<span class="k">Usa solo</span> /[NPS_Q3_anonimizado.xlsx]. Si un motivo tiene menos de 20 menciones, indícalo.\n<span class="k">Entrégalo como</span> tabla: motivo, % de menciones, 2 citas literales, implicación para la comunicación.',
+     hil:'Comprobar que no queda ningún dato personal en las citas.',out:'Mapa de fricciones con citas y peso.'},
+    {b:1,t:'Buyer personas financieras',s:'Personas por segmento, con su relación con el dinero',apps:['Copilot Chat','Pages'],
+     p:'<span class="k">Actúa como</span> estratega de marketing de servicios financieros.\n<span class="k">Necesito</span> 3 buyer personas para [producto]. Éxito: que el equipo creativo pueda escribir para cada una sin preguntar.\n<span class="k">Contexto:</span> datos del segmento en /[Estudio_segmentacion_2026.pptx] y fricciones en /[Voz_cliente_Q3].\n<span class="k">Usa solo</span> esas fuentes. Si inventas un rasgo, márcalo como [HIPÓTESIS].\n<span class="k">Entrégalo como</span> ficha por persona: situación financiera, miedo principal, momento de decisión, canal, frase que le convence, frase que le aleja.',
+     hil:'El equipo de Insights valida las hipótesis antes de compartir.',out:'3 fichas en Copilot Pages editables por el equipo.'},
+    {b:2,t:'Brief creativo completo',s:'De notas sueltas a brief listo para agencia',apps:['Word'],
+     p:'<span class="k">Actúa como</span> responsable de campaña en marketing financiero.\n<span class="k">Necesito</span> un brief creativo a partir de /[notas_reunion_producto.docx]. Éxito: que la agencia no tenga que pedir información.\n<span class="k">Contexto:</span> incluye siempre condiciones económicas, perfil de riesgo, público (minorista / profesional) y normativa aplicable.\n<span class="k">Usa solo</span> las notas y /[Ficha_producto_aprobada]. Lo que falte, escríbelo como [PENDIENTE].\n<span class="k">Entrégalo como</span> brief de una página: reto, objetivo, público, insight, mensaje, mandatorios, canales, KPIs, calendario.',
+     hil:'Producto confirma cada [PENDIENTE] antes de enviar a agencia.',out:'Brief de una página en Word.'},
+    {b:2,t:'Adaptación multicanal',s:'Una idea, seis formatos con sus mandatorios',apps:['Word','Copilot Chat'],
+     p:'<span class="k">Actúa como</span> redactor publicitario de banca con experiencia en canales digitales.\n<span class="k">Necesito</span> adaptar el concepto «[concepto]» a web, app, email, Instagram, LinkedIn y cartel de oficina.\n<span class="k">Contexto:</span> la TAE y el texto legal deben ir en cada pieza con el realce que exige la Circular 4/2020 del Banco de España.\n<span class="k">Usa solo</span> /[Brief_campaña.docx] y /[Guia_tono_marca.pdf].\n<span class="k">Entrégalo como</span> tabla: canal, titular, cuerpo, CTA, texto legal, nº de caracteres. 2 variantes por canal.',
+     hil:'Marca revisa tono; Cumplimiento revisa texto legal en bloque.',out:'12 piezas en una tabla lista para revisión.'},
+    {b:2,t:'Pre-revisión normativa',s:'Checklist antes de enviar a Cumplimiento',apps:['Word','Copilot Chat'],
+     p:'<span class="k">Actúa como</span> revisor de publicidad financiera con conocimiento de la Circular 4/2020 del Banco de España y la Circular 2/2020 de la CNMV.\n<span class="k">Necesito</span> detectar lo que Cumplimiento devolvería en /[pieza_campaña.docx]. No reescribas la pieza.\n<span class="k">Contexto:</span> producto [bancario / de inversión], público minorista.\n<span class="k">Revisa</span>: TAE y su realce, advertencias de riesgo, indicador de riesgo, rentabilidades pasadas, expresiones de garantía, claridad de condiciones.\n<span class="k">Entrégalo como</span> tabla: fragmento, problema, norma de referencia, propuesta de corrección, prioridad.',
+     hil:'Es un filtro previo. La aprobación final es siempre de Cumplimiento.',out:'Checklist de incidencias antes del envío.'},
+    {b:2,t:'Deck de lanzamiento',s:'Presentación interna para red comercial',apps:['PowerPoint'],
+     p:'<span class="k">Actúa como</span> responsable de marketing de producto.\n<span class="k">Necesito</span> una presentación de 8 diapositivas para que la red de oficinas entienda la campaña de [producto] y sepa explicarla.\n<span class="k">Contexto:</span> la red tiene 10 minutos en su reunión semanal.\n<span class="k">Usa</span> /[Brief_campaña.docx] y /[Argumentario_producto.docx]. Aplica la plantilla corporativa.\n<span class="k">Entrégalo como</span> deck: qué lanzamos, para quién, mensaje clave, condiciones, 3 objeciones con respuesta, calendario, materiales, contacto.',
+     hil:'Producto valida condiciones y respuestas a objeciones.',out:'Deck de 8 diapositivas en plantilla corporativa.'},
+    {b:3,t:'Análisis de resultados',s:'Qué funcionó y qué no, con datos',apps:['Excel','Analyst'],
+     p:'<span class="k">Actúa como</span> analista de performance de marketing digital.\n<span class="k">Necesito</span> entender el rendimiento de la campaña [nombre] por canal. Éxito: 3 decisiones de inversión para el próximo mes.\n<span class="k">Contexto:</span> KPIs objetivo: coste por lead [X €], conversión a contratación [Y %].\n<span class="k">Usa solo</span> /[Resultados_campaña.xlsx]. Muestra la fórmula o el cálculo de cada cifra.\n<span class="k">Entrégalo como</span> tabla por canal (inversión, leads, CPL, contratos, CPA) + gráfico + 3 hallazgos y 3 recomendaciones.',
+     hil:'Contrastar las cifras con el dato oficial de BI antes del comité.',out:'Tabla, gráfico y recomendaciones.'},
+    {b:3,t:'Reuniones de campaña',s:'Decisiones y tareas desde Teams',apps:['Teams'],
+     p:'<span class="k">Actúa como</span> PMO del equipo de marketing.\n<span class="k">Necesito</span> el acta de la reunión de seguimiento de [campaña].\n<span class="k">Contexto:</span> separa decisiones tomadas de temas abiertos.\n<span class="k">Usa solo</span> la transcripción de esta reunión. No atribuyas acuerdos que no se dijeron.\n<span class="k">Entrégalo como</span> 3 bloques: decisiones, acciones (responsable y fecha), riesgos o bloqueos.',
+     hil:'El responsable de la reunión revisa antes de compartir.',out:'Acta con acciones y responsables.'},
+    {b:3,t:'Reporting a dirección',s:'Del Excel al correo del comité',apps:['Outlook','Word'],
+     p:'<span class="k">Actúa como</span> director de marketing que informa a comité de dirección.\n<span class="k">Necesito</span> el resumen mensual de marketing. Éxito: que se lea en 2 minutos.\n<span class="k">Contexto:</span> el comité quiere resultado frente a objetivo y decisiones pendientes.\n<span class="k">Usa</span> /[Analisis_resultados_mes.xlsx] y /[Acta_seguimiento].\n<span class="k">Entrégalo como</span> email: 3 titulares con cifra, 1 tabla de 5 KPIs con variación, 2 decisiones que pedimos al comité.',
+     hil:'Revisión de cifras por el analista y del tono por dirección.',out:'Email ejecutivo listo para enviar.'}
+  ];
+
+  var el=document.getElementById('cases');
+  el.innerHTML=CASES.map(function(c,i){
+    var id='case-p-'+(i+1);
+    return '<details class="case" data-b="'+c.b+'"'+(i===0?' open':'')+'>'+
+      '<summary><span class="num">'+String(i+1).padStart(2,'0')+'</span><div><h3>'+c.t+'</h3><p class="sub">'+c.s+'</p></div><div class="apps">'+c.apps.map(function(a){return '<span class="app">'+a+'</span>'}).join('')+'</div></summary>'+
+      '<div class="case-body"><div style="min-width:0"><div class="cmp-h"><strong>Prompt Marco 5</strong><button class="copy" type="button" data-copy="'+id+'">Copiar</button></div><div class="prompt" id="'+id+'">'+c.p+'</div></div>'+
+      '<div class="side"><div><h4>Bloque</h4><p>'+['','Cliente y mercado','Contenido y campañas','Medición y reporting'][c.b]+'</p></div><div><h4>Entregable</h4><p>'+c.out+'</p></div><div class="hil"><h4>Validación humana</h4><p>'+c.hil+'</p></div></div></div></details>';
+  }).join('');
+
+  document.querySelectorAll('.filters button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');
+      var f=b.dataset.f;
+      document.querySelectorAll('.case').forEach(function(c){c.hidden=!(f==='all'||c.dataset.b===f)});
+    });
+  });
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.copy'); if(!b) return;
+    var src=document.getElementById(b.dataset.copy); var txt=src.innerText;
+    function done(msg){var o=b.textContent;b.textContent=msg;setTimeout(function(){b.textContent=o},1600)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(src);var s=getSelection();s.removeAllRanges();s.addRange(r);done('Seleccionado')}
+    try{navigator.clipboard.writeText(txt).then(function(){done('Copiado')},fallback)}catch(err){fallback()}
+  });
+
+  var KEY='ncompany-playbook-copilot-prep';
+  var saved={}; try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  var boxes=document.querySelectorAll('.checklist input');
+  function upd(){var n=0;boxes.forEach(function(x){if(x.checked)n++});document.getElementById('progress').textContent=n+' de '+boxes.length+' tareas listas';}
+  boxes.forEach(function(x){
+    if(saved[x.id]) x.checked=true;
+    x.addEventListener('change',function(){saved[x.id]=x.checked;try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}upd();});
+  });
+  upd();
+})();
+</script>
